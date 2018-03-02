@@ -1,0 +1,102 @@
+<resources>
+    <string name="app_name">Paron</string>
+    <string name="title_activity_splash">Päron</string>
+
+    <!-- Text for 1st intro slide -->
+    <string name="first_intro_text">
+      <![CDATA[
+      <p><font face="Avenir-Roman" color="#7c7c7b" letter-spacing: 0.33dp>Päron är din föräldracoach i fickformat som ger dig experttips kring föräldraskap</font></p>
+      <br>
+      <p><font face="Avenir-Roman" color="#7c7c7b" letter-spacing: 0.33dp>För åldrarna 3-9</font></p>
+      ]]>
+    </string>
+
+    <string name="btn_create_acc">SKAPA NYTT KONTO</string>
+    <string name="login_text">
+         <![CDATA[
+      <p><font face="Avenir-Roman" color="#7c7c7b" letter-spacing: 0.33dp> Jag har redan ett konto!<u> Logga in</u></font></p>
+      ]]>
+    </string>
+
+    <!-- Text for 2nd intro slide -->
+    <string name="second_intro_text">
+      <![CDATA[
+      <p><font face="Avenir-Roman" color="#7c7c7b" letter-spacing: 0.33dp>Tipsen baseras på kunskapen om
+<strong>social</strong> och <strong>emotionell intelligens</strong>
+samt <strong>utvecklingspsykologi.</strong></font></p>
+      <br>
+      <p><font face="Avenir-Roman" color="#7c7c7b" letter-spacing: 0.33dp> Detta för att <strong>stärka relationen</strong> mellan dig och ditt barn. </font></p>
+      ]]>
+    </string>
+
+    <!-- Text for 3rd intro slide -->
+    <string name="third_intro_text">
+      <![CDATA[
+      <p><font face="Avenir-Roman" color="#7c7c7b" letter-spacing: 0.33dp><strong>Visste du att “föräldraskap” är  bland det mest sökta ämnet på internet?</strong></font></p>
+            <p><font face="Avenir-Roman" color="#7c7c7b" letter-spacing: 0.33dp>I Päron har vi gjort det enkelt
+för dig genom att sammanfatta
+och förenkla råden till de mest sökta
+frågorna kring föräldraskap.</font></p>
+
+      ]]>
+    </string>
+
+    <string name="btn_start">KOM IGÅNG NU</string>
+    <string name="title_activity_login">LoginActivity</string>
+
+    <!-- Text for 3rd intro slide -->
+    <string name="login_page_text">
+      <![CDATA[
+
+       <p><font face="Avenir-Black" color="#7c7c7b" letter-spacing: 2.53dp><strong>ELLER REGISTRERA MED EMAIL</strong></font></p>
+
+      ]]>
+    </string>
+
+    <!-- Text for account register page -->
+    <string name="firstname_placeholder">FÖRNAMN</string>
+    <string name="eftername_placeholder">EFTERNAMN</string>
+    <string name="email_placeholder">EMAIL</string>
+    <string name="password_placeholder">LÖSENORD</string>
+    <string name="btn_register">REGISTERA</string>
+    <string name="title_activity_info">infoActivity</string>
+
+    <string name="facebook_app_id">225973424634472</string>
+    <string name="fb_login_protocol_scheme">fb225973424634472</string>
+    <string name="title_activity_email_login">EmailLoginActivity</string>
+
+    <!-- Text for email log in page -->
+    <string name="login_email_placehold"><![CDATA[
+
+       <p><font face="Avenir-Heavy" color="#8a8986" letter-spacing: 0.1dp>EMAIL</font></p>
+
+      ]]></string>
+
+    <string name="login_password_placehold"><![CDATA[
+
+       <p><font face="Avenir-Heavy" color="#8a8986" letter-spacing: 0.1dp>LÖSENORD</font></p>
+
+      ]]></string>
+
+    <string name="login_forgotPW"><![CDATA[
+
+       <p><font face="Avenir-Heavy" color="#7c7c7b" letter-spacing: 0.1dp>Glömt lösenordet?</font></p>
+
+      ]]></string>
+
+    <string name="login_eller"><![CDATA[
+
+       <p><font face="Avenir-Heavy" color="#7c7c7b" letter-spacing: 0.1dp>Eller</font></p>
+
+      ]]></string>
+
+    <string name="login_register_text">
+         <![CDATA[
+      <p><font face="Avenir-Heavy" color="#7c7c7b" letter-spacing: 0.33dp> Har du inget konto?<u> Registrera här</u></font></p>
+      ]]>
+    </string>
+
+
+
+
+</resources>

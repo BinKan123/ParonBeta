@@ -1,0 +1,62 @@
+{
+  "project_info": {
+    "project_number": "652951522344",
+    "firebase_url": "https://paronapp.firebaseio.com",
+    "project_id": "paronapp",
+    "storage_bucket": "paronapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:652951522344:android:a2f2353ec3eaf4d8",
+        "android_client_info": {
+          "package_name": "com.peppypals.paronbeta"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "652951522344-02oabunr9covl0kkbhn4nqtkrvo41grp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.peppypals.paronbeta",
+            "certificate_hash": "7bab73dfc77d3a2009a944bcf321643b2fbb2436"
+          }
+        },
+        {
+          "client_id": "652951522344-f0qmctgqdaj0s0npfrkl567gbqqp32qh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBUQHU4SnTP4ylE3xsskKaGJmdse6GvfZU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "652951522344-5qi38idhen22l79h17diticimid6eu2k.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "LWW.ParonApp-iOS"
+              }
+            },
+            {
+              "client_id": "652951522344-f0qmctgqdaj0s0npfrkl567gbqqp32qh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
