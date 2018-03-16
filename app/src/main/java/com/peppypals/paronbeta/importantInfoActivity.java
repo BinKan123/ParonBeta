@@ -1,11 +1,9 @@
 package com.peppypals.paronbeta;
 
+
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.text.Html;
 import android.text.Spannable;
 import android.text.SpannableString;
@@ -17,28 +15,15 @@ import android.widget.TextView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.peppypals.paronbeta.CategoryList.CategoryActivity;
 
-public class InfoActivity extends AppCompatActivity {
+
+public class ImportantInfoActivity extends AppCompatActivity {
 
     private FirebaseAuth firebaseAuth;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_info);
-
-        Button logout = (Button) findViewById(R.id.logoutBtn);
-
-        logout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                FirebaseAuth.getInstance().signOut();
-
-                Intent intent = new Intent(InfoActivity.this, LoginActivity.class);
-                startActivity(intent);
-
-
-
-            }
-        });
+        setContentView(R.layout.activity_important_info);
 
         TextView importantText = (TextView) findViewById(R.id.importantText);
         importantText.setText(Html.fromHtml(getString(R.string.importantInfo)));
@@ -53,15 +38,23 @@ public class InfoActivity extends AppCompatActivity {
         understandBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(InfoActivity.this, CategoryActivity.class);
+                Intent intent = new Intent(ImportantInfoActivity.this, CategoryActivity.class);
                 startActivity(intent);
 
             }
         });
 
+        Button outBtn = (Button) findViewById(R.id.outBtn);
+        outBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FirebaseAuth.getInstance().signOut();
 
+                Intent intent = new Intent(ImportantInfoActivity.this, LoginActivity.class);
+                startActivity(intent);
 
-
+            }
+        });
 
 
 

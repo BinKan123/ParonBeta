@@ -2,7 +2,7 @@
 <resources>
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorAccent">#f09c9c</color>
 
     <color name="dot_inactive">#d8d8d8</color>
     <color name="dot_active">#f09c9c</color>
@@ -10,6 +10,9 @@
     <color name="text_on_btn">#7c7c7b</color>
     <color name="bg_on_btn">#ffffff</color>
     <color name="login_bg_btn">#c8ecc2</color>
+    <color name="text_login">#8a8986</color>
+    <color name="text_bold">#8b8b8b</color>
+    <color name="kids_name">#5b5b5b</color>
 
 
 

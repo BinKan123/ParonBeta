@@ -19,6 +19,8 @@ public class MainActivity extends FragmentActivity {
 
         setUpView();
 
+
+
     }
 
     private void setUpView(){

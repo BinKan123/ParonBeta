@@ -5,20 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/slide_bg"
-    tools:context="com.peppypals.paronbeta.InfoActivity">
+    tools:context="com.peppypals.paronbeta.ImportantInfoActivity">
 
-    <Button
-        android:id="@+id/logoutBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:text="log out"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintHorizontal_bias="0.028"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="16dp" />
 
     <ImageView
         android:id="@+id/imageView8"
@@ -64,5 +52,13 @@
         app:layout_constraintTop_toBottomOf="@+id/importantText"
         app:layout_constraintVertical_bias="0.0" />
 
-
+    <Button
+        android:id="@+id/outBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:text="log out"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </android.support.constraint.ConstraintLayout>

@@ -57,6 +57,30 @@
         <activity
             android:name=".EmailLoginActivity"
             android:label="@string/title_activity_email_login"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".importantInfoActivity"
+            android:label="@string/title_activity_important_info"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ForgotPWActivity"
+            android:label="@string/title_activity_forgot_pw"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".IntroSlides.emailSentActivity"
+            android:label="@string/title_activity_email_sent"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".EmailSentActivity"
+            android:label="@string/title_activity_email_sent"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".WelcomeActivity"
+            android:label="@string/title_activity_welcome"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".categoryActivity"
+            android:label="@string/title_activity_category"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
