@@ -91,7 +91,7 @@ frågorna kring föräldraskap.</font></p>
     <string name="title_activity_important_info">importantInfoActivity</string>
     <string name="importantInfo"><![CDATA[
 
-       <p><font face="Avenir-Roman" color="#7c7c7b" letter-spacing: 0.1dp><span style="text-decoration-color: #f3a194;">VIKTIGT!</span>Päron är ett icke-medicinsk verktyg och ska ses som en samlingsplats för information. Det erbjuder <strong>inte</strong> individuella råd om mental hälsa och inte heller råd kring barn med särskilda behov.
+       <p><font face="Avenir-Roman" color="#7c7c7b" letter-spacing: 0.1dp><span style="text-decoration-color: #f3a194;">VIKTIGT! </span>Päron är ett icke-medicinsk verktyg och ska ses som en samlingsplats för information. Det erbjuder <strong>inte</strong> individuella råd om mental hälsa och inte heller råd kring barn med särskilda behov.
 <br><br>
 Informationen ges för allmän användning och bör <strong>inte</strong> ses som tillämplig på någon enskild situation. Vi gör allt för att säkerställa innehållets kvalitet men vi tar inte ansvar för hur enskilda personer använder innehållet.</font></p>
 

@@ -1,14 +1,9 @@
 package com.peppypals.paronbeta;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.content.pm.Signature;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.text.Html;
 import android.util.Base64;
 import android.util.Log;
@@ -31,11 +26,8 @@ import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
@@ -48,23 +40,16 @@ import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
 import com.facebook.FacebookSdk;
 import com.facebook.appevents.AppEventsLogger;
-import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseAuthInvalidUserException;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -88,6 +73,7 @@ public class LoginActivity extends AppCompatActivity {
     private static final String PROFILE = "profile";
     private String fbName;
     private String fbEmail;
+    private final String ALREADY_REGISTERED = "Du har redan registerat med Gmail eller Email";
 
     //google signin varialbles
     private Button googleLogin;
@@ -123,11 +109,12 @@ public class LoginActivity extends AppCompatActivity {
         //firebase
         firebaseFirestore = FirebaseFirestore.getInstance();
         firebaseAuth = FirebaseAuth.getInstance();
+        currentUser = firebaseAuth.getCurrentUser();
 
         mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                if (firebaseAuth.getCurrentUser() != null) {
+                if (currentUser != null) {
                     startActivity(new Intent(LoginActivity.this, InfoActivity.class));
                 }
             }
@@ -162,11 +149,9 @@ public class LoginActivity extends AppCompatActivity {
         googleLogin.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-
                 googleSignIn();
             }
         });
-
 
         //email
         firstNameInput = (EditText) findViewById(R.id.firstName);
@@ -178,9 +163,10 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view){
                 emailSignUp();
+
+
             }
         });
-
 
         //dismiss keyboard
         dismissKeyboard(findViewById(R.id.parent));
@@ -208,56 +194,6 @@ public class LoginActivity extends AppCompatActivity {
                 Log.d(TAG, "facebook:onSuccess" + loginResult);
                 facebookAccessToken = loginResult.getAccessToken();
                 handleFacebookAccessToken(facebookAccessToken);
-                Profile profile = Profile.getCurrentProfile();
-
-                // Facebook Emailaddress
-                GraphRequest request = GraphRequest.newMeRequest(
-                        loginResult.getAccessToken(),
-                        new GraphRequest.GraphJSONObjectCallback() {
-                            @Override
-                            public void onCompleted(
-                                    JSONObject object,
-                                    GraphResponse response) {
-                                Log.v("LoginActivity Response ", response.toString());
-
-                                try {
-                                    fbName = object.getString("name");
-
-                                    fbEmail = object.getString("email");
-                                    Log.v("Email = ", " " + fbEmail);
-                                    Toast.makeText(getApplicationContext(), "Name: " + fbName+"& Email: "+ fbEmail, Toast.LENGTH_LONG).show();
-
-                                    Map<String, Object> fbUser = new HashMap<>();
-                                    fbUser.put("name", fbName);
-                                    fbUser.put("email", fbEmail);
-                                    firebaseFirestore.collection("users")
-                                            .add(fbUser)
-                                            .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                                                @Override
-                                                public void onSuccess(DocumentReference documentReference) {
-                                                    Log.d(TAG, "DocumentSnapshot added with ID: " + documentReference.getId());
-
-                                                }
-                                            })
-                                            .addOnFailureListener(new OnFailureListener() {
-                                                @Override
-                                                public void onFailure(@NonNull Exception e) {
-                                                    Log.w(TAG, "Error adding document", e);
-                                                    Toast.makeText(LoginActivity.this, "Authentication failed with error" + e,
-                                                           Toast.LENGTH_LONG).show();
-                                                }
-                                            });
-
-                                } catch (JSONException e) {
-                                    e.printStackTrace();
-                                }
-                            }
-                        });
-                Bundle parameters = new Bundle();
-                parameters.putString("fields", "id,name,email,gender, birthday");
-                request.setParameters(parameters);
-                request.executeAsync();
-
             }
 
             @Override
@@ -268,7 +204,6 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onError(FacebookException error) {
                 Log.d(TAG, "facebook:onError", error);
-
             }
         });
     }
@@ -308,14 +243,42 @@ public class LoginActivity extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "signInWithCredential:success");
 
+                             // Facebook Emailaddress
+                GraphRequest request = GraphRequest.newMeRequest(
+                        AccessToken.getCurrentAccessToken(),
+                        new GraphRequest.GraphJSONObjectCallback() {
+                                @Override
+                                public void onCompleted(
+                                    JSONObject object,
+                                    GraphResponse response) {
+                                Log.v("LoginActivity Response ", response.toString());
+
+                                try {
+                                    fbName = object.getString("name");
+
+                                    fbEmail = object.getString("email");
+                                    Log.e(TAG, "Name: " + fbName + ", email: " + fbEmail);
+
+                                    Intent intent = new Intent(getBaseContext(), InfoActivity.class);
+                                    intent.putExtra("fbName", fbName);
+                                    intent.putExtra("fbEmail", fbEmail);
+                                    startActivity(intent);
+
+
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                        });
+                Bundle parameters = new Bundle();
+                parameters.putString("fields", "id,name,email,gender, birthday");
+                request.setParameters(parameters);
+                request.executeAsync();
 
                         } else {
                             // If sign in fails, display a message to the user.
-
                             Log.e(TAG, "signInWithCredential:failure", task.getException());
-                            Toast.makeText(LoginActivity.this, "Authentication failed.",
-                                    Toast.LENGTH_LONG).show();
-
+                            showError.setText(ALREADY_REGISTERED);
                         }
                     }
                 });
@@ -325,12 +288,10 @@ public class LoginActivity extends AppCompatActivity {
     public void googleSignIn() {
         Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(googleApiClient);
         startActivityForResult(signInIntent, RC_SIGN_IN);
-
     }
 
-    private void firebaseAuthWithGoogle(GoogleSignInAccount acct){
+    private void firebaseAuthWithGoogle(final GoogleSignInAccount acct){
         Log.d(TAG, "firebaseAuthWithGoogle:" + acct.getId());
-        currentUser = firebaseAuth.getCurrentUser();
         AuthCredential credential = GoogleAuthProvider.getCredential(acct.getIdToken(), null);
         firebaseAuth.signInWithCredential(credential)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -340,18 +301,24 @@ public class LoginActivity extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "signInWithCredential:success");
 
+                            gName = acct.getDisplayName();
+                            gMail = acct.getEmail();
+
+                            Log.e(TAG, "Name: " + gName + ", email: " + gMail);
+
+                            Intent intent = new Intent(getBaseContext(), InfoActivity.class);
+                            intent.putExtra("gName", gName);
+                            intent.putExtra("gMail", gMail);
+                            startActivity(intent);
+
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "signInWithCredential:failure", task.getException());
                             Toast.makeText(LoginActivity.this, "Authentication failed.",
                                     Toast.LENGTH_SHORT).show();
-
                         }
-
-
                     }
                 });
-
     }
 
     private void handleSignInResult(GoogleSignInResult result) {
@@ -359,41 +326,9 @@ public class LoginActivity extends AppCompatActivity {
         if (result.isSuccess()) {
             // Signed in successfully, show authenticated UI.
             GoogleSignInAccount acct = result.getSignInAccount();
-
             Log.e(TAG, "display name: " + acct.getDisplayName());
-
-            gName = acct.getDisplayName();
-            gMail = acct.getEmail();
-
-            Log.e(TAG, "Name: " + gName + ", email: " + gMail);
-            Toast.makeText(getApplicationContext(), "Name: " + gName+"& Email: "+ gMail, Toast.LENGTH_LONG).show();
-
-
-            Map<String, Object> gUser = new HashMap<>();
-            gUser.put("name", gName);
-            gUser.put("email", gMail);
-
-                firebaseFirestore.collection("users")
-                    .add(gUser)
-                    .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                        @Override
-                        public void onSuccess(DocumentReference documentReference) {
-                            Log.d(TAG, "DocumentSnapshot added with ID: " + documentReference.getId());
-
-                        }
-                    })
-                    .addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            Log.w(TAG, "Error adding document", e);
-                            Toast.makeText(LoginActivity.this, "Authentication failed with error" + e,
-                                    Toast.LENGTH_LONG).show();
-                        }
-                    });
-
         } else {
             Toast.makeText(getApplicationContext(), "failed with error", Toast.LENGTH_LONG).show();
-
         }
     }
 
@@ -413,40 +348,15 @@ public class LoginActivity extends AppCompatActivity {
                             if (task.isSuccessful()) {
                                 // Sign in success, update UI with the signed-in user's information
                                 Log.d(TAG, "createUserWithEmail:success");
-                            /*FirebaseUser user = firebaseAuth.getCurrentUser();
-                            mDatabase.child("users").child(user.getUid()).child("email").setValue(email);
-                            mDatabase.child("users").child(user.getUid()).child("password").setValue(password);
-                            mDatabase.child("users").child(user.getUid()).child("firstName").setValue(firstName);
-                            mDatabase.child("users").child(user.getUid()).child("lastName").setValue(lastName);*/
 
-                                // Create a new user with a first and last name
-                                Map<String, Object> user = new HashMap<>();
-                                user.put("firstName", firstName);
-                                user.put("lastName", lastName);
-                                user.put("email", email);
-                                user.put("password", password);
-
-                                // Add a new document with a generated ID
-                                firebaseFirestore.collection("users")
-                                        .add(user)
-                                        .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                                            @Override
-                                            public void onSuccess(DocumentReference documentReference) {
-                                                Log.d(TAG, "DocumentSnapshot added with ID: " + documentReference.getId());
-
-                                            }
-                                        })
-                                        .addOnFailureListener(new OnFailureListener() {
-                                            @Override
-                                            public void onFailure(@NonNull Exception e) {
-                                                Log.w(TAG, "Error adding document", e);
-                                                Toast.makeText(LoginActivity.this, "Authentication failed with error" + e,
-                                                        Toast.LENGTH_SHORT).show();
-                                            }
-                                        });
+                                //retrieve user info for adding in firestore in next activity
+                                Intent intent = new Intent(getBaseContext(), InfoActivity.class);
+                                intent.putExtra("firstName", firstName);
+                                intent.putExtra("lastName", lastName);
+                                intent.putExtra("email", email);
+                                intent.putExtra("password", password);
+                                startActivity(intent);
                             } else {
-                               // showError.setText(task.getException().getMessage());
-                                // If sign in fails, display a message to the user.
                                 try {
                                     throw task.getException();
                                 }
