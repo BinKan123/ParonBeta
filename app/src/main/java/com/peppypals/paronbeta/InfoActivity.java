@@ -105,18 +105,17 @@ public class InfoActivity extends AppCompatActivity {
 
         //facebook user login dataset
         fbUser = new HashMap<>();
-        fbUser.put("fbName", fbNameValue);
-        fbUser.put("fbEmail", fbEmailValue);
+        fbUser.put("name", fbNameValue);
+        fbUser.put("email", fbEmailValue);
 
         //google user login dataset
         gUser = new HashMap<>();
-        gUser.put("gName", gNameValue);
-        gUser.put("gMail", gMailValue);
+        gUser.put("name", gNameValue);
+        gUser.put("email", gMailValue);
 
         //email user login dataset
         user = new HashMap<>();
-        user.put("firstName", firstNameValue);
-        user.put("lastName", lastNameValue);
+        user.put("name", firstNameValue+" "+lastNameValue);
         user.put("email", emailValue);
         user.put("password", passwordValue);
 
@@ -154,8 +153,6 @@ public class InfoActivity extends AppCompatActivity {
                     @Override
                     public void onSuccess(Void aVoid) {
                         Log.d(TAG, "user added ");
-                        Toast.makeText(InfoActivity.this, "user added",
-                                Toast.LENGTH_LONG).show();
 
                     }
                 })
@@ -163,8 +160,6 @@ public class InfoActivity extends AppCompatActivity {
                     @Override
                     public void onFailure(@NonNull Exception e) {
                         Log.w(TAG, "Error adding document", e);
-                        Toast.makeText(InfoActivity.this, "Authentication failed with error" + e,
-                                Toast.LENGTH_LONG).show();
                     }
                 });
     }

@@ -1,31 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
-    <Button
-        android:id="@+id/categoryBtn"
-        android:layout_width="103dp"
-        android:layout_height="63dp"
-        android:layout_marginLeft="41dp"
-        android:layout_marginTop="29dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <ImageView
+        android:id="@+id/kidInfoBar"
+        android:layout_width="152dp"
+        android:layout_height="78dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="0dp"
+        android:layout_marginTop="8dp"
+        android:textAlignment="center"
+        app:srcCompat="@drawable/roundedbtn"
+        tools:layout_editor_absoluteX="116dp" />
 
     <TextView
-        android:id="@+id/categoryText"
-        android:layout_width="87dp"
-        android:layout_height="46dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="8dp"
+        android:id="@+id/nameAgeText"
+        android:layout_width="107dp"
+        android:layout_height="66dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="0dp"
+        android:gravity="center"
+        android:paddingLeft="3dp"
+        android:paddingRight="3dp"
         android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="@+id/categoryBtn"
-        app:layout_constraintLeft_toLeftOf="@+id/categoryBtn"
-        app:layout_constraintRight_toRightOf="@+id/categoryBtn"
-        app:layout_constraintTop_toTopOf="@+id/categoryBtn" />
-</android.support.constraint.ConstraintLayout>
+        android:textAlignment="center"
+        android:textColor="?android:attr/colorControlNormal"
+        android:textSize="14sp"
+        tools:layout_editor_absoluteX="137dp" />
+
+</RelativeLayout>

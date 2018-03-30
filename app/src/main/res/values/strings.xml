@@ -123,10 +123,19 @@ Informationen ges för allmän användning och bör <strong>inte</strong> ses so
     <string name="birthday_info">Födelsedatum</string>
     <string name="title_activity_category">categoryActivity</string>
     <string name="related_tips"><![CDATA[
-       <p><font face="Avenir-Roman" color="#8b8b8b" letter-spacing: 0.1dp><strong>Vad vill du veta mer om från Coachen?</strong>
+       <p><font face="Avenir-Roman" color="#8b8b8b" letter-spacing: 0.1dp><strong>Vilka ämnen vill du veta mer om?</strong>
     Välj minst tre för att få relevanta tips</span></font></p>
       ]]></string>
     <string name="title_activity_welcome">welcomeActivity</string>
-
+    <string name="done_btn">Klar</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="add_kid_Text">Lägg till dina barn</string>
+    <string name="add_kid">Lägg till barn</string>
+    <string name="next_btn">Nästa</string>
+    <string name="kid_name_title">Mitt barn heter</string>
+    <string name="kid_name_info">Detta visas bara för dig</string>
+    <string name="kid_name_placeholder">Skriv namn</string>">
+    <string name="kid_name_Btn">Steg 2/3</string>
+    <string name="birthday_Text">Födelsedatum</string>
 
 </resources>

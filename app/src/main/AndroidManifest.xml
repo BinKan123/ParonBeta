@@ -63,19 +63,15 @@
             android:label="@string/title_activity_forgot_pw"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".IntroSlides.emailSentActivity"
-            android:label="@string/title_activity_email_sent"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
             android:name=".EmailSentActivity"
             android:label="@string/title_activity_email_sent"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".WelcomeActivity"
-            android:label="@string/title_activity_welcome"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:name=".CategoryList.CategoryActivity"
+            android:label="@string/title_activity_category"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
-            android:name="CategoryList.CategoryActivity"
+            android:name=".EnterKidInfo.ActivityToFragment"
             android:label="@string/title_activity_category"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>

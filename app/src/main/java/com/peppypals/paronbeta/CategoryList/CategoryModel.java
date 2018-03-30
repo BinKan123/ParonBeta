@@ -1,5 +1,7 @@
 package com.peppypals.paronbeta.CategoryList;
 
+import com.google.firebase.database.IgnoreExtraProperties;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -7,6 +9,7 @@ import java.util.Map;
  * Created by kanbi on 17/03/2018.
  */
 
+@IgnoreExtraProperties
 public class CategoryModel {
 
    // private String id;
