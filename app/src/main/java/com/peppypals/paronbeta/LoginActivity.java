@@ -1,7 +1,9 @@
 package com.peppypals.paronbeta;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Html;
@@ -45,7 +47,9 @@ import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.peppypals.paronbeta.IntroSlides.IntroSlideThreeFragment;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -100,6 +104,14 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        //Check if onboarding slides have been viewed
+        Boolean isFirstRun = getSharedPreferences("Preference",MODE_PRIVATE).getBoolean("isfirstrun",true);
+        if(isFirstRun){
+            getSharedPreferences("Preference",MODE_PRIVATE).edit().putBoolean("isfirstrun",false).commit();
+            startActivity(new Intent(this, SplashActivity.class));
+        }
+
 
         TextView loginText = (TextView) findViewById(R.id.loginText);
         loginText.setText(Html.fromHtml(getString(R.string.login_page_text)));

@@ -1,8 +1,11 @@
 package com.peppypals.paronbeta;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -17,11 +20,19 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.QuerySnapshot;
 import com.peppypals.paronbeta.CategoryList.CategoryActivity;
+import com.peppypals.paronbeta.MainTabs.MainTabsActivity;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -33,6 +44,7 @@ public class InfoActivity extends AppCompatActivity {
     private FirebaseAuth firebaseAuth;
     private FirebaseFirestore firebaseFirestore;
     private String uid;
+    private CollectionReference childrenRef;
 
     //facebook login variables
     private String fbNameValue;
@@ -57,9 +69,29 @@ public class InfoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_info);
 
         Button logout = (Button) findViewById(R.id.logoutBtn);
+
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseFirestore = FirebaseFirestore.getInstance();
         uid = firebaseAuth.getCurrentUser().getUid();
+        childrenRef = FirebaseFirestore.getInstance().collection("users").document(uid).collection("children");
+
+        childrenRef.get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (DocumentSnapshot document : task.getResult()) {
+                                if(document.exists()) {
+                                    Intent intent = new Intent(getBaseContext(), MainTabsActivity.class);
+                                    startActivity(intent);
+                                } else {
+                                }
+                            }
+                        } else {
+                            Log.d(TAG, "Error getting documents: ", task.getException());
+                        }
+                    }
+                });
 
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,8 +112,6 @@ public class InfoActivity extends AppCompatActivity {
         spannableString.setSpan(foregroundSpan, 0,8, Spannable.SPAN_INCLUSIVE_INCLUSIVE);
         importantText.setText(spannableString);
 
-
-
         //receiving login info.
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
@@ -93,7 +123,6 @@ public class InfoActivity extends AppCompatActivity {
             //receiving google login info.
             gNameValue = extras.getString("gName");
             gMailValue = extras.getString("gMail");
-
 
             //receiving email login info.
             firstNameValue = extras.getString("firstName");
@@ -163,4 +192,6 @@ public class InfoActivity extends AppCompatActivity {
                     }
                 });
     }
+
+
 }

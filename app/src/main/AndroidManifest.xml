@@ -39,17 +39,18 @@
         <activity
             android:name=".SplashActivity"
             android:label="@string/title_activity_splash"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".LoginActivity"
+            android:label="@string/title_activity_login"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+            />
         </activity>
-        <activity
-            android:name=".LoginActivity"
-            android:label="@string/title_activity_login"
-            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".InfoActivity"
             android:label="@string/title_activity_info"
@@ -69,10 +70,18 @@
         <activity
             android:name=".CategoryList.CategoryActivity"
             android:label="@string/title_activity_category"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".EnterKidInfo.ActivityToFragment"
             android:label="@string/title_activity_category"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".MainTabs.MainTabsActivity"
+            android:label="@string/title_activity_main_tabs"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".StartHere.StartHereActivity"
+            android:label="@string/title_activity_start_here"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

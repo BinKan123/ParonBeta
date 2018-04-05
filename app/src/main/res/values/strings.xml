@@ -137,5 +137,15 @@ Informationen ges för allmän användning och bör <strong>inte</strong> ses so
     <string name="kid_name_placeholder">Skriv namn</string>">
     <string name="kid_name_Btn">Steg 2/3</string>
     <string name="birthday_Text">Födelsedatum</string>
+    <string name="title_activity_main_tabs">MainTabsActivity</string>
+    <string name="title_activity_start_here">StartHereActivity</string>
+    <string name="welcome_title">VÄLKOMMEN!</string>
+    <string name="welcome_text">Lägg till dina barn för att få anpassade råd!</string>
+    <string name="welcome_btn">LÄGG TILL BARN</string>
+    <string name="daily_title">Dagens fråga</string>
+    <string name="daily_btn">Läs mera</string>
+    <string name="recommend_text">Rekommenderat för dig</string>
+    <string name="doYouKnow_text">Visste du att</string>
+    <string name="tips_text">Tipsa dina vänner</string>
 
 </resources>

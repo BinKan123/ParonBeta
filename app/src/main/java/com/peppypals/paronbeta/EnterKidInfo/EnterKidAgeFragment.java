@@ -88,30 +88,6 @@ public class EnterKidAgeFragment extends Fragment {
                 }
                 birthday = datePicker.getDayOfMonth() + " / " + (datePicker.getMonth()+1) + " / " + datePicker.getYear();
 
-                //send data to firebase
-               /* kidInfo = new HashMap<>();
-                kidInfo.put("name", name);
-                kidInfo.put("birthday", birthday);
-
-                kidInfoRef.document()
-                        .set(kidInfo)
-                        .addOnSuccessListener(new OnSuccessListener<Void>() {
-                            @Override
-                            public void onSuccess(Void aVoid) {
-                                //Log.d(TAG, "kid info added ");
-                                Toast.makeText(getActivity().getApplicationContext(), "kidinfo added",
-                                        Toast.LENGTH_LONG).show();
-                            }
-                        })
-                        .addOnFailureListener(new OnFailureListener() {
-                            @Override
-                            public void onFailure(@NonNull Exception e) {
-                                // Log.w(TAG, "Error adding document", e);
-                                Toast.makeText(getActivity().getApplicationContext(), "Failed to add kidInfo" + e,
-                                        Toast.LENGTH_LONG).show();
-                            }
-                        });*/
-
             }
         });
 

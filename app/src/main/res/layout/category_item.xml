@@ -7,7 +7,7 @@
     android:layout_height="wrap_content">
 
     <ImageView
-        android:id="@+id/kidInfoBar"
+        android:id="@+id/adviceBar"
         android:layout_width="152dp"
         android:layout_height="78dp"
         android:layout_centerHorizontal="true"
@@ -21,7 +21,7 @@
         tools:layout_editor_absoluteX="116dp" />
 
     <TextView
-        android:id="@+id/nameAgeText"
+        android:id="@+id/adviceQuestion"
         android:layout_width="107dp"
         android:layout_height="66dp"
         android:layout_centerHorizontal="true"

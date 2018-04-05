@@ -1,12 +1,18 @@
 package com.peppypals.paronbeta;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
 import android.widget.Button;
 
-public class MainActivity extends FragmentActivity {
+import com.peppypals.paronbeta.IntroSlides.IntroSlideThreeFragment;
+
+public class MainActivity extends FragmentActivity  {
 
     private ViewPager viewPager;
     private com.peppypals.paronbeta.IntroSlides.IntroPageAdapter pageAdapter;
@@ -18,8 +24,6 @@ public class MainActivity extends FragmentActivity {
         setContentView(R.layout.activity_main);
 
         setUpView();
-
-
 
     }
 

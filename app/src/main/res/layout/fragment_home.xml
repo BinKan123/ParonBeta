@@ -1,13 +1,197 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.peppypals.paronbeta.MainTabs.HomeFragment">
+    android:id="@+id/activity_main"
+   >
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:layout_editor_absoluteY="-28dp">
 
-</FrameLayout>
+        <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:scrollbars="vertical">
+
+            <TextView
+                android:id="@+id/doYouKnowText"
+                android:layout_width="201dp"
+                android:layout_height="25dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/doYouKnow_text"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+            <ImageView
+                android:id="@+id/imageView16"
+                android:layout_width="443dp"
+                android:layout_height="229dp"
+                android:layout_marginEnd="2dp"
+                android:layout_marginLeft="2dp"
+                android:layout_marginRight="2dp"
+                android:layout_marginStart="2dp"
+                app:layout_constraintHorizontal_bias="0.437"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/doYouKnowText"
+                app:srcCompat="@drawable/bgblue" />
+
+            <ImageView
+                android:id="@+id/imageView17"
+                android:layout_width="108dp"
+                android:layout_height="145dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="36dp"
+                android:layout_marginStart="39dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView16"
+                app:layout_constraintLeft_toLeftOf="@+id/imageView16"
+                app:layout_constraintTop_toTopOf="@+id/imageView16"
+                app:layout_constraintVertical_bias="0.529"
+                app:srcCompat="@drawable/page_1" />
+
+            <TextView
+                android:id="@+id/factText"
+                android:layout_width="216dp"
+                android:layout_height="164dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:gravity="center"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView16"
+                app:layout_constraintHorizontal_bias="0.142"
+                app:layout_constraintLeft_toRightOf="@+id/imageView17"
+                app:layout_constraintRight_toRightOf="@+id/imageView16"
+                app:layout_constraintTop_toTopOf="@+id/imageView16"
+                app:layout_constraintVertical_bias="0.514" />
+
+            <ImageView
+                android:id="@+id/imageView15"
+                android:layout_width="655dp"
+                android:layout_height="217dp"
+                android:background="@color/cake_bg"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/daily"
+                app:layout_constraintHorizontal_bias="0.505"
+                android:layout_marginTop="0dp"
+                android:layout_marginLeft="0dp" />
+
+            <TextView
+                android:id="@+id/dailyTitle"
+                android:layout_width="218dp"
+                android:layout_height="34dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/daily_title"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/dailyQuestion"
+                android:layout_width="247dp"
+                android:layout_height="104dp"
+                android:layout_marginTop="24dp"
+                android:textAlignment="center"
+                android:textSize="18sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/dailyTitle"
+                app:layout_constraintHorizontal_bias="0.503" />
+
+            <Button
+                android:id="@+id/readMoreBtn"
+                android:layout_width="152dp"
+                android:layout_height="39dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/readmore"
+                android:text="@string/daily_btn"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView15"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView15"
+                app:layout_constraintVertical_bias="0.571" />
+
+            <TextView
+                android:id="@+id/recommendText"
+                android:layout_width="201dp"
+                android:layout_height="25dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/recommend_text"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView15"
+                app:layout_constraintVertical_bias="0.041" />
+
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="0dp"
+                android:layout_height="208dp"
+                android:layout_marginTop="8dp"
+                android:gravity="bottom|center"
+                android:orientation="vertical"
+                android:weightSum="1"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/recommendText">
+
+                <android.support.v7.widget.RecyclerView
+
+                    android:id="@+id/adviceRecyclerview"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scrollbars="horizontal"
+                    tools:layout_editor_absoluteX="8dp"
+                    tools:layout_editor_absoluteY="8dp"
+                    android:layout_marginLeft="-8dp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tipsText"
+                android:layout_width="201dp"
+                android:layout_height="25dp"
+                android:layout_marginLeft="16dp"
+                android:text="@string/tips_text"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView16"
+                android:layout_marginStart="16dp" />
+
+
+        </android.support.constraint.ConstraintLayout>
+    </ScrollView>
+
+
+
+</android.support.constraint.ConstraintLayout>

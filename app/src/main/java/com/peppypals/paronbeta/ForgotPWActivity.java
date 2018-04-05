@@ -107,8 +107,6 @@ public class ForgotPWActivity extends AppCompatActivity {
 
     }
 
-
-
     public void dismissKeyboard(View view) {
 
         // Set up touch listener for non-text box views to hide keyboard.

@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimary">#8c87ef</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#f09c9c</color>
-
     <color name="dot_inactive">#d8d8d8</color>
     <color name="dot_active">#f09c9c</color>
     <color name="slide_bg">#fef6e8</color>
@@ -14,7 +13,37 @@
     <color name="text_bold">#8b8b8b</color>
     <color name="kids_name">#5b5b5b</color>
     <color name="pink_heart">#f7dffb</color>
-    <color name="cake_bg">#f2c39b</color>
+    <color name="cake_bg">#f6cba5</color>
+    <color name="add_kid_btn">#8fd8bb</color>
+    <color name="readmore_btn"> #c8ecc2</color>
+
+
+
+
+
+    <color name="color1">#b1aeef</color>
+    <color name="color2">#f2b1b1</color>
+    <color name="color3">#f0f1a2</color>
+    <color name="color4">#dcd2ed</color>
+    <color name="color5">#d2b9ed</color>
+    <color name="color6">#8fd8bb</color>
+    <color name="color7">#ecc2cc</color>
+    <color name="color8">#a5d0f6</color>
+    <color name="color9">#8fd8bb</color>
+    <color name="color10"> #c8ecc2</color>
+
+        <integer-array name="androidcolors">
+            <item>@color/color1</item>
+            <item>@color/color2</item>
+            <item>@color/color3</item>
+            <item>@color/color4</item>
+            <item>@color/color5</item>
+            <item>@color/color6</item>
+            <item>@color/color7</item>
+            <item>@color/color8</item>
+            <item>@color/color9</item>
+            <item>@color/color10</item>
+        </integer-array>
 
 
 

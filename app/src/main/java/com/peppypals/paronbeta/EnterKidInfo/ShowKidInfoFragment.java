@@ -1,14 +1,10 @@
 package com.peppypals.paronbeta.EnterKidInfo;
 
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.PorterDuff;
 import android.icu.util.Calendar;
-import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -19,25 +15,19 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.CollectionReference;
-import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.Query;
-import com.peppypals.paronbeta.CategoryList.CategoryActivity;
-import com.peppypals.paronbeta.CategoryList.CategoryModel;
+import com.peppypals.paronbeta.MainTabs.MainTabsActivity;
 import com.peppypals.paronbeta.R;
 
 import java.util.HashMap;
@@ -133,9 +123,8 @@ public class ShowKidInfoFragment extends Fragment {
         confirmInfoBtn.setOnClickListener(new View.OnClickListener() {
                                               @Override
                                               public void onClick(View v) {
-                                                  Fragment fragment = new EnterKidNameFragment();
-                                                  FragmentManager fragmentManager = getFragmentManager();
-                                                  fragmentManager.beginTransaction().replace(android.R.id.content, fragment).commit();
+                                                  Intent intent = new Intent(getActivity(), MainTabsActivity.class);
+                                                  startActivity(intent);
                                               }
                                           }
         );
@@ -230,7 +219,7 @@ public class ShowKidInfoFragment extends Fragment {
         private KidInfoViewholder(View itemView) {
             super(itemView);
 
-            nameAge = (TextView) itemView.findViewById(R.id.nameAgeText);
+            nameAge = (TextView) itemView.findViewById(R.id.adviceQuestion);
             removeBtn = (Button) itemView.findViewById(R.id.removeInfoBtn);
             itemView.setOnClickListener(this);
             childrenRef = firestoreDB.collection("users").document(uid).collection("children");

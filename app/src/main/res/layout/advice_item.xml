@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="180dp"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/adviceBar"
+        android:layout_width="160dp"
+        android:layout_height="220dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginBottom="15dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:textAlignment="center"
+        app:srcCompat="@drawable/roundedbtn"
+        tools:layout_editor_absoluteX="116dp" />
+
+    <TextView
+        android:id="@+id/adviceQuestion"
+        android:layout_width="147dp"
+        android:layout_height="130dp"
+        android:layout_marginTop="18dp"
+        android:gravity="center"
+        android:paddingLeft="3dp"
+        android:paddingRight="3dp"
+        android:textColor="?android:attr/colorControlNormal"
+        android:textSize="15sp"
+        tools:layout_editor_absoluteX="137dp"
+        android:layout_alignTop="@+id/adviceBar"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/numTipsText"
+        android:layout_width="70dp"
+        android:layout_height="30dp"
+        android:gravity="center"
+        android:paddingLeft="3dp"
+        android:paddingRight="3dp"
+        android:text="2 tips"
+        android:textColor="?android:attr/colorControlNormal"
+        android:textSize="14sp"
+        tools:layout_editor_absoluteX="137dp"
+        android:layout_below="@+id/adviceQuestion"
+        android:layout_centerHorizontal="true" />
+
+</RelativeLayout>
