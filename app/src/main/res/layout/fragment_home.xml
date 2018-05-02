@@ -1,30 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    android:orientation="vertical"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:id="@+id/activity_main"
-   >
+
 
     <ScrollView
-        android:layout_width="0dp"
+        android:orientation="vertical"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         tools:layout_editor_absoluteY="-28dp">
 
-        <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            xmlns:tools="http://schemas.android.com/tools"
+        <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingLeft="8dp"
-            android:paddingRight="8dp"
             android:scrollbars="vertical">
 
             <TextView
@@ -42,13 +34,12 @@
 
             <ImageView
                 android:id="@+id/imageView16"
-                android:layout_width="443dp"
-                android:layout_height="229dp"
+                android:layout_width="0dp"
+                android:layout_height="205dp"
                 android:layout_marginEnd="2dp"
                 android:layout_marginLeft="2dp"
                 android:layout_marginRight="2dp"
                 android:layout_marginStart="2dp"
-                app:layout_constraintHorizontal_bias="0.437"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/doYouKnowText"
@@ -58,60 +49,54 @@
                 android:id="@+id/imageView17"
                 android:layout_width="108dp"
                 android:layout_height="145dp"
-                android:layout_marginBottom="8dp"
-                android:layout_marginLeft="36dp"
-                android:layout_marginStart="39dp"
-                android:layout_marginTop="8dp"
-                app:layout_constraintBottom_toBottomOf="@+id/imageView16"
-                app:layout_constraintLeft_toLeftOf="@+id/imageView16"
-                app:layout_constraintTop_toTopOf="@+id/imageView16"
-                app:layout_constraintVertical_bias="0.529"
-                app:srcCompat="@drawable/page_1" />
+                android:layout_marginStart="8dp"
+                app:srcCompat="@drawable/page_1"
+                android:layout_marginLeft="8dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/factText"
+                android:layout_marginTop="5dp"
+                app:layout_constraintBottom_toBottomOf="@+id/factText" />
 
             <TextView
                 android:id="@+id/factText"
-                android:layout_width="216dp"
-                android:layout_height="164dp"
+                android:layout_width="215dp"
+                android:layout_height="133dp"
                 android:layout_marginBottom="8dp"
                 android:layout_marginEnd="8dp"
-                android:layout_marginLeft="8dp"
                 android:layout_marginRight="8dp"
-                android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:gravity="center"
                 android:textSize="14sp"
                 app:layout_constraintBottom_toBottomOf="@+id/imageView16"
-                app:layout_constraintHorizontal_bias="0.142"
-                app:layout_constraintLeft_toRightOf="@+id/imageView17"
                 app:layout_constraintRight_toRightOf="@+id/imageView16"
-                app:layout_constraintTop_toTopOf="@+id/imageView16"
-                app:layout_constraintVertical_bias="0.514" />
+                app:layout_constraintTop_toTopOf="@+id/imageView16" />
 
             <ImageView
                 android:id="@+id/imageView15"
-                android:layout_width="655dp"
-                android:layout_height="217dp"
+                android:layout_width="413dp"
+                android:layout_height="214dp"
                 android:background="@color/cake_bg"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/daily"
-                app:layout_constraintHorizontal_bias="0.505"
-                android:layout_marginTop="0dp"
-                android:layout_marginLeft="0dp" />
+                app:srcCompat="@drawable/daily" />
 
             <TextView
                 android:id="@+id/dailyTitle"
-                android:layout_width="218dp"
-                android:layout_height="34dp"
-                android:layout_marginLeft="16dp"
+                android:layout_width="152dp"
+                android:layout_height="39dp"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
                 android:text="@string/daily_title"
                 android:textSize="24sp"
                 android:textStyle="bold"
+                android:layout_marginLeft="16dp"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:layout_marginRight="8dp"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="16dp"
+                app:layout_constraintHorizontal_bias="0.136"
+                android:layout_marginEnd="8dp" />
 
             <TextView
                 android:id="@+id/dailyQuestion"
@@ -128,7 +113,7 @@
             <Button
                 android:id="@+id/readMoreBtn"
                 android:layout_width="152dp"
-                android:layout_height="39dp"
+                android:layout_height="48dp"
                 android:layout_marginTop="8dp"
                 android:background="@drawable/readmore"
                 android:text="@string/daily_btn"
@@ -173,7 +158,8 @@
                     android:scrollbars="horizontal"
                     tools:layout_editor_absoluteX="8dp"
                     tools:layout_editor_absoluteY="8dp"
-                    android:layout_marginLeft="-8dp" />
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginRight="2dp" />
             </LinearLayout>
 
             <TextView
@@ -189,9 +175,83 @@
                 android:layout_marginStart="16dp" />
 
 
+            <ImageView
+                android:id="@+id/chatBar"
+                android:layout_width="match_parent"
+                android:layout_height="306dp"
+
+                android:layout_marginTop="32dp"
+                android:background="@color/chat_pic_bg"
+                android:textAlignment="center"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tipsText" />
+
+            <TextView
+                android:id="@+id/notfoundText"
+                android:layout_width="266dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/personal_text"
+                android:textAlignment="center"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/chatBar" />
+
+            <TextView
+                android:id="@+id/persontext1"
+                android:layout_width="270dp"
+                android:layout_height="62dp"
+                android:layout_marginTop="17dp"
+                android:text="@string/personal_text1"
+                android:textAlignment="center"
+                android:textSize="14sp"
+                app:layout_constraintLeft_toLeftOf="@+id/notfoundText"
+                app:layout_constraintRight_toRightOf="@+id/notfoundText"
+                app:layout_constraintTop_toBottomOf="@+id/notfoundText"
+                tools:layout_editor_absoluteX="76dp"
+                app:layout_constraintHorizontal_bias="0.515" />
+
+            <TextView
+                android:id="@+id/persontext2"
+                android:layout_width="270dp"
+                android:layout_height="62dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/personaltext2"
+                android:textAlignment="center"
+                android:textSize="14sp"
+                app:layout_constraintLeft_toLeftOf="@+id/notfoundText"
+                app:layout_constraintRight_toRightOf="@+id/notfoundText"
+                app:layout_constraintTop_toBottomOf="@+id/persontext1" />
+
+            <Button
+                android:id="@+id/writeUs"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/writebtn"
+                android:text="@string/to_expert"
+                android:textColor="@color/text_on_btn"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/persontext2"
+                app:layout_constraintVertical_bias="0.0" />
+
+
+
+
         </android.support.constraint.ConstraintLayout>
     </ScrollView>
 
 
 
-</android.support.constraint.ConstraintLayout>
+

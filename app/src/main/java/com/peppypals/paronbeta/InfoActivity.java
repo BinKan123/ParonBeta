@@ -68,7 +68,6 @@ public class InfoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_info);
 
-        Button logout = (Button) findViewById(R.id.logoutBtn);
 
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseFirestore = FirebaseFirestore.getInstance();
@@ -93,15 +92,7 @@ public class InfoActivity extends AppCompatActivity {
                     }
                 });
 
-        logout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                FirebaseAuth.getInstance().signOut();
 
-                Intent intent = new Intent(InfoActivity.this, LoginActivity.class);
-                startActivity(intent);
-            }
-        });
 
         TextView importantText = (TextView) findViewById(R.id.importantText);
         importantText.setText(Html.fromHtml(getString(R.string.importantInfo)));

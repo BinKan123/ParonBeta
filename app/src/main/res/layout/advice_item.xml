@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="180dp"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    >
 
     <ImageView
         android:id="@+id/adviceBar"
@@ -21,7 +22,7 @@
         tools:layout_editor_absoluteX="116dp" />
 
     <TextView
-        android:id="@+id/adviceQuestion"
+        android:id="@+id/categoryName"
         android:layout_width="147dp"
         android:layout_height="130dp"
         android:layout_marginTop="18dp"
@@ -38,14 +39,14 @@
         android:id="@+id/numTipsText"
         android:layout_width="70dp"
         android:layout_height="30dp"
+        android:layout_below="@+id/categoryName"
+        android:layout_centerHorizontal="true"
         android:gravity="center"
         android:paddingLeft="3dp"
         android:paddingRight="3dp"
         android:text="2 tips"
         android:textColor="?android:attr/colorControlNormal"
         android:textSize="14sp"
-        tools:layout_editor_absoluteX="137dp"
-        android:layout_below="@+id/adviceQuestion"
-        android:layout_centerHorizontal="true" />
+        tools:layout_editor_absoluteX="137dp" />
 
 </RelativeLayout>

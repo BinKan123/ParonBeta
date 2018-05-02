@@ -1,0 +1,197 @@
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/chat_bg"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.peppypals.paronbeta.ChatSection.DeclaimFragment">
+
+
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:scrollbars="vertical">
+
+            <ImageView
+                android:id="@+id/chatBar"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:background="@color/chat_bar"
+                android:textAlignment="center"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:layout_constraintLeft_creator="1"
+                tools:layout_constraintRight_creator="1"
+                tools:layout_constraintTop_creator="1" />
+
+            <Button
+                android:id="@+id/backChatBtn"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/back"
+                app:layout_constraintBottom_toBottomOf="@+id/chatBar"
+                app:layout_constraintLeft_toLeftOf="@+id/chatBar"
+                app:layout_constraintTop_toTopOf="@+id/chatBar"
+                app:layout_constraintVertical_bias="0.51" />
+
+            <TextView
+                android:id="@+id/chatTitle"
+                android:layout_width="161dp"
+                android:layout_height="22dp"
+                android:text="@string/bocka_chatt"
+                android:textAlignment="center"
+                android:textColor="@android:color/background_light"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintHorizontal_bias="0.502"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/chatBar"
+                android:layout_marginTop="8dp"
+                app:layout_constraintBottom_toBottomOf="@+id/chatBar"
+                android:layout_marginBottom="8dp" />
+
+            <ImageView
+                android:id="@+id/declaim2"
+                android:layout_width="302dp"
+                android:layout_height="249dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="24dp"
+                app:layout_constraintLeft_toLeftOf="@+id/imageView19"
+                app:layout_constraintRight_toRightOf="@+id/imageView19"
+                app:layout_constraintTop_toBottomOf="@+id/imageView19"
+                app:srcCompat="@drawable/pinkarea"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp" />
+
+
+            <TextView
+                android:id="@+id/declaimText2"
+                android:layout_width="252dp"
+                android:layout_height="142dp"
+                android:layout_marginBottom="37dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginStart="8dp"
+                android:text="@string/chat_declaim2"
+                app:layout_constraintBottom_toBottomOf="@+id/declaim2"
+                app:layout_constraintHorizontal_bias="0.51"
+                app:layout_constraintLeft_toLeftOf="@+id/declaim2"
+                app:layout_constraintRight_toRightOf="@+id/declaim2" />
+
+            <ImageView
+                android:id="@+id/imageView19"
+                android:layout_width="302dp"
+                android:layout_height="249dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="24dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:srcCompat="@drawable/greenarea"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                app:layout_constraintHorizontal_bias="0.508"
+                app:layout_constraintTop_toBottomOf="@+id/chatBar" />
+
+            <TextView
+                android:id="@+id/declaim1"
+                android:layout_width="263dp"
+                android:layout_height="147dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/chat_declaim1"
+                app:layout_constraintLeft_toLeftOf="@+id/imageView19"
+                app:layout_constraintTop_toTopOf="@+id/imageView19"
+                android:layout_marginRight="8dp"
+                app:layout_constraintRight_toRightOf="@+id/imageView19"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView19"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintHorizontal_bias="0.49"
+                app:layout_constraintVertical_bias="0.674" />
+
+            <TextView
+                android:id="@+id/declaimTitle2"
+                android:layout_width="259dp"
+                android:layout_height="23dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginStart="8dp"
+                android:text="@string/declaim_title2"
+                android:textAlignment="center"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/declaimText2"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintLeft_toLeftOf="@+id/declaim2"
+                app:layout_constraintRight_toRightOf="@+id/declaim2"
+                app:layout_constraintTop_toTopOf="@+id/declaim2"
+                app:layout_constraintVertical_bias="0.744" />
+
+            <TextView
+                android:id="@+id/declaimTitle1"
+                android:layout_width="259dp"
+                android:layout_height="23dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:text="@string/declaim_title1"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toLeftOf="@+id/imageView19"
+                app:layout_constraintRight_toRightOf="@+id/imageView19"
+                app:layout_constraintTop_toTopOf="@+id/imageView19"
+                app:layout_constraintHorizontal_bias="0.481"
+                app:layout_constraintBottom_toTopOf="@+id/declaim1"
+                app:layout_constraintVertical_bias="0.629"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp" />
+
+            <Button
+                android:id="@+id/nextchatBtn"
+                android:layout_height="53dp"
+                android:layout_marginBottom="16dp"
+                android:layout_marginTop="24dp"
+                android:background="@drawable/chatgreen"
+                android:text="@string/next"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/declaim2"
+                app:layout_constraintVertical_bias="0.0"
+                android:layout_width="336dp"
+                android:layout_marginRight="16dp"
+                app:layout_constraintRight_toRightOf="@+id/declaim2"
+                android:layout_marginLeft="16dp"
+                app:layout_constraintLeft_toLeftOf="@+id/declaim2"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp" />
+
+
+        </android.support.constraint.ConstraintLayout>
+    </ScrollView>
+
+
+</android.support.constraint.ConstraintLayout>

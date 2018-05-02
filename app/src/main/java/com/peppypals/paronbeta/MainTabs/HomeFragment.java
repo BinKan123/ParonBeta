@@ -37,24 +37,13 @@ import com.google.firebase.firestore.QuerySnapshot;
 import com.peppypals.paronbeta.LoginActivity;
 import com.peppypals.paronbeta.R;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
-public class HomeFragment extends Fragment {
+public class HomeFragment extends Fragment implements AdviceAdapter.ButtonClickListner {
 
     private static final String TAG = "HomeFragment";
 
@@ -106,6 +95,8 @@ public class HomeFragment extends Fragment {
                                                     if (document.exists()) {
                                                         Log.d(TAG, document.getId() + " => " + document.getData());
                                                         String question = (String) document.getData().get("question");
+
+                                                        //form array list for questions
                                                         adviceModel advice = document.toObject(adviceModel.class);
                                                         adviceList.add(advice);
                                                     } else {
@@ -132,12 +123,12 @@ public class HomeFragment extends Fragment {
                                                         editor.commit();
                                                     }*/
 
+
                                                     //add data to recommend list
                                                     layoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL,false);
-                                                    adapter = new AdviceAdapter(adviceList);
+                                                    adapter = new AdviceAdapter(adviceList,HomeFragment.this);
                                                     recyclerView.setLayoutManager(layoutManager);
                                                     recyclerView.setAdapter(adapter);
-
                                                 }
 
                                             } else {
@@ -175,4 +166,16 @@ public class HomeFragment extends Fragment {
         return view;
     }
 
+    @Override
+    public void btnClick(adviceModel itemClicked) {
+
+        Intent intent = new Intent(getActivity(), HomeAdviceActivity.class);
+
+        intent.putExtra("adviceQuestion", itemClicked.getQuestion());
+        intent.putExtra("questionID", itemClicked.getQuestionId());
+
+
+        getActivity().startActivity(intent);
+
+    }
 }

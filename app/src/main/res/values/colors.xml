@@ -7,7 +7,7 @@
     <color name="dot_active">#f09c9c</color>
     <color name="slide_bg">#fef6e8</color>
     <color name="text_on_btn">#7c7c7b</color>
-    <color name="bg_on_btn">#ffffff</color>
+    <color name="bg_on_btn">#bfffffff</color>
     <color name="login_bg_btn">#c8ecc2</color>
     <color name="text_login">#8a8986</color>
     <color name="text_bold">#8b8b8b</color>
@@ -16,7 +16,13 @@
     <color name="cake_bg">#f6cba5</color>
     <color name="add_kid_btn">#8fd8bb</color>
     <color name="readmore_btn"> #c8ecc2</color>
-
+    <color name="pink_dis">#d9b7de</color>
+    <color name="fragment_bg">#fffdfa</color>
+    <color name="chat_pic_bg">#f6f5f3</color>
+    <color name="chat_bar">#b0b8f5</color>
+    <color name="chat_bg">#efe8dd</color>
+    <color name="cloud_bg">#e6e3e0</color>
+    <color name="cloud_low_bg">#efe8dd</color>
 
 
 
@@ -24,13 +30,24 @@
     <color name="color1">#b1aeef</color>
     <color name="color2">#f2b1b1</color>
     <color name="color3">#f0f1a2</color>
-    <color name="color4">#dcd2ed</color>
+    <color name="color4">#fce0c5</color>
     <color name="color5">#d2b9ed</color>
     <color name="color6">#8fd8bb</color>
     <color name="color7">#ecc2cc</color>
     <color name="color8">#a5d0f6</color>
     <color name="color9">#8fd8bb</color>
     <color name="color10"> #c8ecc2</color>
+    <color name="color11">#c7e29e</color>
+    <color name="color12">#e2f7db</color>
+    <color name="color13">#f2dede</color>
+    <color name="color14">#f5d7f1</color>
+    <color name="color15">#f7d9af</color>
+    <color name="color16">#f0f2c0</color>
+    <color name="color17">#b6f2db</color>
+    <color name="color18">#b3e7f2</color>
+    <color name="color19">#ecdbec</color>
+    <color name="color20">#f5cdc3</color>
+
 
         <integer-array name="androidcolors">
             <item>@color/color1</item>
@@ -43,6 +60,16 @@
             <item>@color/color8</item>
             <item>@color/color9</item>
             <item>@color/color10</item>
+            <item>@color/color11</item>
+            <item>@color/color12</item>
+            <item>@color/color13</item>
+            <item>@color/color14</item>
+            <item>@color/color15</item>
+            <item>@color/color16</item>
+            <item>@color/color17</item>
+            <item>@color/color18</item>
+            <item>@color/color19</item>
+            <item>@color/color20</item>
         </integer-array>
 
 

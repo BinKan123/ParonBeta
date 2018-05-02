@@ -219,7 +219,7 @@ public class ShowKidInfoFragment extends Fragment {
         private KidInfoViewholder(View itemView) {
             super(itemView);
 
-            nameAge = (TextView) itemView.findViewById(R.id.adviceQuestion);
+            nameAge = (TextView) itemView.findViewById(R.id.categoryName);
             removeBtn = (Button) itemView.findViewById(R.id.removeInfoBtn);
             itemView.setOnClickListener(this);
             childrenRef = firestoreDB.collection("users").document(uid).collection("children");

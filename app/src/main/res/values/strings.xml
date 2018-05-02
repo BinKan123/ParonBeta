@@ -147,5 +147,75 @@ Informationen ges för allmän användning och bör <strong>inte</strong> ses so
     <string name="recommend_text">Rekommenderat för dig</string>
     <string name="doYouKnow_text">Visste du att</string>
     <string name="tips_text">Tipsa dina vänner</string>
+    <string name="title_activity_home_advice">HomeAdviceActivity</string>
+    <string name="seemore_btn">SE FLER SVAR</string>
+    <string name="extra_tough">Känns föräldraskapet extra tufft?</string>
+    <string name="extra_details">Vi vet att föräldrarollen kan upplevas som  utmanande i vissa perioder. Vi vill erbjuda dig den hjälp du behöver i just den stunden.  Här nedan kan du komma i kontakt med våra proffs och få den hjälp du behöver direkt.  Du kan chatta, maila eller ringa!</string>
+    <string name="extra_details_Info"><![CDATA[
+
+       <p><font face="Avenir-Roman" color="#8b8b8b" letter-spacing: 0.1dp>Vi vet att föräldrarollen kan upplevas som
+utmanande i vissa perioder. Vi vill erbjuda
+dig den hjälp du behöver i just den stunden.</span></font></p>
+<br>
+
+
+       <p><font face="Avenir-Roman" color="#8b8b8b" letter-spacing: 0.1dp>Här nedan kan du komma i kontakt med våra
+proffs och få den hjälp du behöver direkt.</span></font></p>
+<br>
+
+       <p><font face="Avenir-Roman" color="#8b8b8b" letter-spacing: 0.1dp>Du kan chatta, maila eller ringa!</span></font></p>
+<br>
+
+
+
+      ]]></string>
+    <string name="not_found">Hittar ni inte de svaren  ni var ute efter?</string>
+    <string name="not_found_details">Skriv till oss berätta vad ni saknar så kan vi se till att du hittar rätt nästa gång!</string>
+    <string name="write_us">Skriv till oss</string>
+    <string name="personal_text">Vill du ha personliga och anpassade tips från proffsen?</string>
+    <string name="personal_text1">Du har möjlighet att ta kontakt med våra proffs för att få extra stöd inom föräldraskap.</string>
+    <string name="personaltext2">Ta kontakt via telefon, mail eller chat och vi svarar samma dag eller inom 48 timmar!</string>
+    <string name="to_expert">Till Proffsen</string>
+    <string name="title_activity_chat_section">ChatSectionActivity</string>
+    <string name="bocka_chatt">Boka en Chatt</string>
+    <string name="next">Nästa</string>
+
+    <!-- Text for nochat page -->
+    <string name="no_chat">
+      <![CDATA[
+ <p><font face="Avenir-Roman" color="#7c7c7b" letter-spacing: 0.33dp>Du kan prova att chatta helt grattis med våra experter i 15 minuter. Du kan alltid återkomma till denna person för längre sessioner. </font></p>
+
+      ]]>
+    </string>
+
+    <!-- Text for chat declaim -->
+
+
+    <string name="chat_declaim1">
+      <![CDATA[
+      <p><font face="Avenir-Roman" color="#7c7c7b" letter-spacing: 0.33dp>Päron erbjuder möte med psykolog eller pedagog där vi kan hjälpa dig med att
+bättre förstå dina problem, samt ge råd
+och stöd i ditt föräldrarskap. </font></p>
+<br>
+ <p><font face="Avenir-Roman" color="#7c7c7b" letter-spacing: 0.33dp>Våra psykologer och pedagoger ger råd kring frågor som rör barns psykologiska
+och emotionella utveckling. </font></p>
+
+      ]]>
+    </string>
+
+    <string name="chat_declaim2">
+      <![CDATA[
+
+      <p><font face="Avenir-Roman" color="#7c7c7b" letter-spacing: 0.33dp>Våra psykologer kan inte hjälpa dig med frågor som rör medicinering, diagnostisering eller akuta tillstånd. Om du vill ha hjälp med det så ska du vända dig till en läkare eller närmsta akutmottagning.  </font></p>
+
+      ]]>
+    </string>
+    <string name="declaim_title1">Vad vi kan hjälpa dig med</string>
+    <string name="declaim_title2">När vi inte kan hjälpa till</string>
+    <string name="no_chat_title">Inga chattar ännu!</string>
+    <string name="start_chat">Börja chatta!</string>
+    <string name="no_chat_text">Du kan prova att chatta helt grattis med våra experter i 15 minuter. Du kan alltid återkomma till denna person för längre sessioner.</string>
+    <string name="with_whom">Med vem vill du chatta med?</string>
+
 
 </resources>

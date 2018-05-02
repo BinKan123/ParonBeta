@@ -1,13 +1,166 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<ScrollView
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.peppypals.paronbeta.MainTabs.ContactFragment">
+    android:layout_height="wrap_content"
+    app:layout_constraintHorizontal_bias="0.0"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintRight_toRightOf="parent"
+    tools:layout_editor_absoluteY="-28dp">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:scrollbars="vertical">
 
-</FrameLayout>
+        <TextView
+            android:id="@+id/extraToughText"
+            android:layout_width="315dp"
+            android:layout_height="33dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            android:text="@string/extra_tough"
+            android:textAlignment="textStart"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintHorizontal_bias="0.514"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView15" />
+
+        <ImageView
+            android:id="@+id/imageView15"
+            android:layout_width="0dp"
+            android:layout_height="214dp"
+            android:background="@color/chat_pic_bg"
+            app:layout_constraintHorizontal_bias="0.493"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/chatpic" />
+
+        <TextView
+            android:id="@+id/extraDetails"
+            android:layout_width="327dp"
+            android:layout_height="wrap_content"
+            android:text="@string/extra_details_Info"
+            android:textAlignment="viewStart"
+            android:textSize="14sp"
+            app:layout_constraintLeft_toLeftOf="@+id/extraToughText"
+            app:layout_constraintRight_toRightOf="@+id/extraToughText"
+            app:layout_constraintTop_toBottomOf="@+id/extraToughText" />
+
+        <Button
+            android:id="@+id/chatBtn"
+            android:layout_width="287dp"
+            android:layout_height="90dp"
+            android:background="@drawable/chatbtn"
+            app:layout_constraintHorizontal_bias="0.52"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/extraDetails" />
+
+
+        <Button
+            android:id="@+id/mailBtn"
+            android:layout_width="287dp"
+            android:layout_height="90dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/mail"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toLeftOf="@+id/chatBtn"
+            app:layout_constraintRight_toRightOf="@+id/chatBtn"
+            app:layout_constraintTop_toBottomOf="@+id/chatBtn" />
+
+        <Button
+            android:id="@+id/ringBtn"
+            android:layout_width="287dp"
+            android:layout_height="90dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/ring"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toLeftOf="@+id/chatBtn"
+            app:layout_constraintRight_toRightOf="@+id/chatBtn"
+            app:layout_constraintTop_toBottomOf="@+id/mailBtn" />
+
+        <ImageView
+            android:id="@+id/chatBar"
+            android:layout_width="0dp"
+            android:layout_height="246dp"
+
+            android:layout_marginTop="32dp"
+            android:background="@color/chat_pic_bg"
+            android:textAlignment="center"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ringBtn" />
+
+        <TextView
+            android:id="@+id/notfoundText"
+            android:layout_width="200dp"
+            android:layout_height="41dp"
+            android:layout_marginTop="21dp"
+            android:text="@string/not_found"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintHorizontal_bias="0.501"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/chatBar" />
+
+        <TextView
+            android:id="@+id/persontext1"
+            android:layout_width="233dp"
+            android:layout_height="62dp"
+            android:layout_marginTop="17dp"
+            android:text="@string/not_found_details"
+            android:textAlignment="center"
+            android:textSize="14sp"
+            app:layout_constraintTop_toBottomOf="@+id/notfoundText"
+            app:layout_constraintLeft_toLeftOf="@+id/notfoundText"
+            app:layout_constraintRight_toRightOf="@+id/notfoundText" />
+
+        <Button
+            android:id="@+id/writeUs"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/writebtn"
+            android:text="@string/write_us"
+            android:textColor="@color/text_on_btn"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.501"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/persontext1"
+            app:layout_constraintVertical_bias="1.0"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp" />
+
+
+    </android.support.constraint.ConstraintLayout>
+</ScrollView>
+
+
+
+
+
+
+
+
+
+

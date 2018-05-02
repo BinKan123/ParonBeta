@@ -42,7 +42,7 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".LoginActivity"
-            android:label="@string/title_activity_login"
+            android:label="Paron"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -78,10 +78,18 @@
         <activity
             android:name=".MainTabs.MainTabsActivity"
             android:label="@string/title_activity_main_tabs"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".StartHere.StartHereActivity"
             android:label="@string/title_activity_start_here"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".MainTabs.HomeAdviceActivity"
+            android:label="@string/title_activity_home_advice"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ChatSection.ChatSectionActivity"
+            android:label="@string/title_activity_chat_section"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

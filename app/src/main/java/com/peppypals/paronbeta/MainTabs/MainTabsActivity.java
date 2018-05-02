@@ -27,6 +27,7 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.peppypals.paronbeta.CategoryList.CategoryActivity;
 import com.peppypals.paronbeta.EnterKidInfo.ActivityToFragment;
 import com.peppypals.paronbeta.LoginActivity;
 import com.peppypals.paronbeta.R;
@@ -97,10 +98,10 @@ public class MainTabsActivity extends AppCompatActivity {
     //viewpager
     private void setupViewPager(ViewPager viewPager){
         NavPageAdapter adapter=new NavPageAdapter(getSupportFragmentManager());
-        adapter.addFragment(new HomeFragment(),"Hem");
-        adapter.addFragment(new DiscoverFragment(),"Utforska");
-        adapter.addFragment(new MyPageFragment(),"Min sida");
-        adapter.addFragment(new ContactFragment(),"Kontakt");
+        adapter.addFragment(new HomeFragment(),"");
+        adapter.addFragment(new DiscoverFragment(),"");
+        adapter.addFragment(new MyPageFragment(),"");
+        adapter.addFragment(new ContactFragment(),"");
 
         viewPager.setAdapter(adapter);
         viewPager.setOffscreenPageLimit(4);
@@ -111,6 +112,14 @@ public class MainTabsActivity extends AppCompatActivity {
         tabLayout.getTabAt(1).setIcon(tabIcons[1]);
         tabLayout.getTabAt(2).setIcon(tabIcons[2]);
         tabLayout.getTabAt(3).setIcon(tabIcons[3]);
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(this, CategoryActivity.class);
+        startActivity(intent);
+
+        return;
     }
 
 }

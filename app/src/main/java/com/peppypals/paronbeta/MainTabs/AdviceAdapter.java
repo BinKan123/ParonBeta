@@ -1,16 +1,23 @@
 package com.peppypals.paronbeta.MainTabs;
 
 import android.content.Context;
+import android.os.Build;
+import android.support.annotation.NonNull;
+import android.support.annotation.RequiresApi;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
 import com.peppypals.paronbeta.R;
-import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -21,12 +28,30 @@ import java.util.Random;
 
 public class AdviceAdapter extends RecyclerView.Adapter <AdviceAdapter.ViewHolder>{
 
-    //adapter
-    private final ArrayList<adviceModel> adviceData;
-
-    public AdviceAdapter(ArrayList<adviceModel> adviceData) {
-        this.adviceData = adviceData;
+    //interface
+    private ButtonClickListner onClicklistener;
+    public interface ButtonClickListner  {
+        void btnClick(adviceModel itemClicked);
     }
+
+    private ArrayList<adviceModel> adviceData;
+
+    public AdviceAdapter(ArrayList<adviceModel> adviceData, ButtonClickListner onClicklistener) {
+        this.adviceData = adviceData;
+        this.onClicklistener = onClicklistener;
+    }
+
+    public AdviceAdapter() {
+    }
+
+
+    public void setData(ArrayList<adviceModel> data) {
+        if (adviceData!= data) {
+            adviceData = data;
+            notifyDataSetChanged();
+        }
+    }
+
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         private ImageView adviceBar;
@@ -37,7 +62,7 @@ public class AdviceAdapter extends RecyclerView.Adapter <AdviceAdapter.ViewHolde
             super(itemView);
 
             adviceBar = itemView.findViewById(R.id.adviceBar);
-            adviceQuestion = itemView.findViewById(R.id.adviceQuestion);
+            adviceQuestion = itemView.findViewById(R.id.categoryName);
             numTips = itemView.findViewById(R.id.numTipsText);
 
         }
@@ -55,6 +80,7 @@ public class AdviceAdapter extends RecyclerView.Adapter <AdviceAdapter.ViewHolde
         final adviceModel item = adviceData.get(i);
 
         holder.adviceQuestion.setText(item.getQuestion());
+        holder.numTips.setText(item.getAdviceNum()+ " Tips");
 
         //add random color to imageview background
         final Context context = holder.itemView.getContext();
@@ -65,7 +91,11 @@ public class AdviceAdapter extends RecyclerView.Adapter <AdviceAdapter.ViewHolde
         holder.adviceBar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(onClicklistener!=null)
+                {
+                    onClicklistener.btnClick(item);
 
+                }
             }
         });
     }

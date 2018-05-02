@@ -92,14 +92,11 @@
         app:layout_constraintVertical_bias="0.0">
 
 
-
-
-            <View
-                android:layout_width="292dp"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:background="@drawable/heart" />
-
+        <View
+            android:layout_width="292dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:background="@drawable/heart" />
 
 
     </FrameLayout>
