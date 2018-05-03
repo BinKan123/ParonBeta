@@ -33,7 +33,7 @@
             tools:layout_constraintTop_creator="1" />
 
         <Button
-            android:id="@+id/backDeclaimBtn"
+            android:id="@+id/backDeclBtn"
             android:layout_width="18dp"
             android:layout_height="18dp"
             android:layout_marginBottom="8dp"
@@ -107,7 +107,7 @@
             app:layout_constraintVertical_bias="0.0" />
 
         <ImageView
-            android:id="@+id/psykologOption"
+            android:id="@+id/psykologOptionPe"
             android:layout_width="0dp"
             android:layout_height="145dp"
             android:layout_marginEnd="16dp"
@@ -129,9 +129,9 @@
             android:layout_marginLeft="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            app:layout_constraintBottom_toBottomOf="@+id/psykologOption"
-            app:layout_constraintLeft_toLeftOf="@+id/psykologOption"
-            app:layout_constraintTop_toTopOf="@+id/psykologOption"
+            app:layout_constraintBottom_toBottomOf="@+id/psykologOptionPe"
+            app:layout_constraintLeft_toLeftOf="@+id/psykologOptionPe"
+            app:layout_constraintTop_toTopOf="@+id/psykologOptionPe"
             app:srcCompat="@drawable/psypic" />
 
         <TextView
@@ -161,16 +161,16 @@
 
         <ImageView
             android:id="@+id/pedagogOption"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="145dp"
             android:layout_marginEnd="16dp"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
-            app:layout_constraintLeft_toLeftOf="@+id/psykologOption"
-            app:layout_constraintRight_toRightOf="@+id/psykologOption"
-            app:layout_constraintTop_toBottomOf="@+id/priceImg3"
+            app:layout_constraintLeft_toLeftOf="@+id/psykologOptionPe"
+            app:layout_constraintRight_toRightOf="@+id/psykologOptionPe"
+            app:layout_constraintTop_toBottomOf="@+id/priceImg3pe"
             app:srcCompat="@drawable/expbar" />
 
         <ImageView
@@ -241,7 +241,7 @@
             app:layout_constraintRight_toRightOf="parent" />
 
         <ImageView
-            android:id="@+id/priceImg1"
+            android:id="@+id/priceImg1pe"
             android:layout_width="283dp"
             android:layout_height="43dp"
             android:layout_marginLeft="8dp"
@@ -256,7 +256,7 @@
             android:layout_marginEnd="8dp" />
 
         <ImageView
-            android:id="@+id/priceImg2"
+            android:id="@+id/priceImg2pe"
             android:layout_width="283dp"
             android:layout_height="43dp"
             android:layout_marginLeft="8dp"
@@ -264,13 +264,13 @@
             android:background="@color/time_btn"
             app:layout_constraintLeft_toLeftOf="@+id/imageView25"
             app:layout_constraintRight_toRightOf="@+id/imageView25"
-            app:layout_constraintTop_toBottomOf="@+id/priceImg1"
+            app:layout_constraintTop_toBottomOf="@+id/priceImg1pe"
             app:srcCompat="@drawable/time_option_btn"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp" />
 
         <ImageView
-            android:id="@+id/priceImg3"
+            android:id="@+id/priceImg3pe"
             android:layout_width="283dp"
             android:layout_height="43dp"
             android:layout_marginLeft="8dp"
@@ -278,7 +278,7 @@
             android:background="@color/time_btn"
             app:layout_constraintLeft_toLeftOf="@+id/imageView25"
             app:layout_constraintRight_toRightOf="@+id/imageView25"
-            app:layout_constraintTop_toBottomOf="@+id/priceImg2"
+            app:layout_constraintTop_toBottomOf="@+id/priceImg2pe"
             app:srcCompat="@drawable/time_option_btn"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp" />
@@ -290,27 +290,27 @@
             android:layout_marginBottom="8dp"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="16dp"
-            app:layout_constraintBottom_toTopOf="@+id/priceImg2"
-            app:layout_constraintLeft_toLeftOf="@+id/priceImg1"
-            app:layout_constraintTop_toTopOf="@+id/priceImg1"
+            app:layout_constraintBottom_toTopOf="@+id/priceImg2pe"
+            app:layout_constraintLeft_toLeftOf="@+id/priceImg1pe"
+            app:layout_constraintTop_toTopOf="@+id/priceImg1pe"
             app:srcCompat="@drawable/corner"
             android:layout_marginStart="16dp" />
 
         <TextView
-            android:id="@+id/timeprice1"
+            android:id="@+id/timeprice1pe"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:layout_marginTop="8dp"
             android:text="@string/option2"
-            app:layout_constraintBottom_toTopOf="@+id/priceImg3"
-            app:layout_constraintLeft_toLeftOf="@+id/timeprice2"
-            app:layout_constraintRight_toRightOf="@+id/timeprice2"
-            app:layout_constraintTop_toTopOf="@+id/priceImg2"
+            app:layout_constraintBottom_toTopOf="@+id/priceImg3pe"
+            app:layout_constraintLeft_toLeftOf="@+id/timeprice2pe"
+            app:layout_constraintRight_toRightOf="@+id/timeprice2pe"
+            app:layout_constraintTop_toTopOf="@+id/priceImg2pe"
             app:layout_constraintVertical_bias="0.6" />
 
         <TextView
-            android:id="@+id/timeprice2"
+            android:id="@+id/timeprice2pe"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
@@ -318,10 +318,10 @@
             android:layout_marginRight="8dp"
             android:layout_marginTop="8dp"
             android:text="@string/option1"
-            app:layout_constraintBottom_toTopOf="@+id/priceImg2"
-            app:layout_constraintLeft_toLeftOf="@+id/priceImg1"
-            app:layout_constraintRight_toRightOf="@+id/priceImg1"
-            app:layout_constraintTop_toTopOf="@+id/priceImg1"
+            app:layout_constraintBottom_toTopOf="@+id/priceImg2pe"
+            app:layout_constraintLeft_toLeftOf="@+id/priceImg1pe"
+            app:layout_constraintRight_toRightOf="@+id/priceImg1pe"
+            app:layout_constraintTop_toTopOf="@+id/priceImg1pe"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp" />
 
@@ -332,9 +332,9 @@
             android:layout_marginBottom="8dp"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="8dp"
-            app:layout_constraintBottom_toTopOf="@+id/priceImg3"
-            app:layout_constraintLeft_toLeftOf="@+id/priceImg2"
-            app:layout_constraintTop_toTopOf="@+id/priceImg2"
+            app:layout_constraintBottom_toTopOf="@+id/priceImg3pe"
+            app:layout_constraintLeft_toLeftOf="@+id/priceImg2pe"
+            app:layout_constraintTop_toTopOf="@+id/priceImg2pe"
             app:layout_constraintVertical_bias="0.428"
             app:srcCompat="@drawable/half"
             android:layout_marginStart="16dp" />
@@ -346,9 +346,9 @@
             android:layout_marginBottom="8dp"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="8dp"
-            app:layout_constraintBottom_toBottomOf="@+id/priceImg3"
-            app:layout_constraintLeft_toLeftOf="@+id/priceImg3"
-            app:layout_constraintTop_toTopOf="@+id/priceImg3"
+            app:layout_constraintBottom_toBottomOf="@+id/priceImg3pe"
+            app:layout_constraintLeft_toLeftOf="@+id/priceImg3pe"
+            app:layout_constraintTop_toTopOf="@+id/priceImg3pe"
             app:srcCompat="@drawable/third"
             android:layout_marginStart="16dp" />
 
@@ -360,21 +360,22 @@
 
             android:layout_marginTop="8dp"
             android:text="@string/option3"
-            app:layout_constraintBottom_toBottomOf="@+id/priceImg3"
+            app:layout_constraintBottom_toBottomOf="@+id/priceImg3pe"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintLeft_toLeftOf="@+id/timeprice1"
-            app:layout_constraintRight_toRightOf="@+id/timeprice1"
-            app:layout_constraintTop_toTopOf="@+id/priceImg3" />
+            app:layout_constraintLeft_toLeftOf="@+id/timeprice1pe"
+            app:layout_constraintRight_toRightOf="@+id/timeprice1pe"
+            app:layout_constraintTop_toTopOf="@+id/priceImg3pe" />
 
         <ImageView
             android:id="@+id/check1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:tint="@color/add_kid_btn"
-            app:layout_constraintRight_toRightOf="@+id/priceImg1"
-            app:layout_constraintTop_toTopOf="@+id/priceImg1"
+            app:layout_constraintRight_toRightOf="@+id/priceImg1pe"
+            app:layout_constraintTop_toTopOf="@+id/priceImg1pe"
             app:srcCompat="@drawable/ic_check"
-            app:layout_constraintBottom_toTopOf="@+id/priceImg2"
+            app:layout_constraintBottom_toTopOf="@+id/priceImg2pe"
+            android:layout_marginRight="16dp"
             android:visibility="gone"/>
 
         <ImageView
@@ -383,9 +384,10 @@
             android:layout_height="wrap_content"
             android:tint="@color/add_kid_btn"
             app:srcCompat="@drawable/ic_check"
-            app:layout_constraintTop_toTopOf="@+id/priceImg2"
-            app:layout_constraintBottom_toTopOf="@+id/priceImg3"
-            app:layout_constraintRight_toRightOf="@+id/priceImg2"
+            app:layout_constraintTop_toTopOf="@+id/priceImg2pe"
+            app:layout_constraintBottom_toTopOf="@+id/priceImg3pe"
+            app:layout_constraintRight_toRightOf="@+id/priceImg2pe"
+            android:layout_marginRight="16dp"
             android:visibility="gone"/>
 
         <ImageView
@@ -394,9 +396,10 @@
             android:layout_height="wrap_content"
             android:tint="@color/add_kid_btn"
             app:srcCompat="@drawable/ic_check"
-            app:layout_constraintRight_toRightOf="@+id/priceImg2"
-            app:layout_constraintTop_toTopOf="@+id/priceImg3"
-            app:layout_constraintBottom_toBottomOf="@+id/priceImg3"
+            app:layout_constraintRight_toRightOf="@+id/priceImg2pe"
+            app:layout_constraintTop_toTopOf="@+id/priceImg3pe"
+            app:layout_constraintBottom_toBottomOf="@+id/priceImg3pe"
+            android:layout_marginRight="16dp"
             android:visibility="gone"/>
 
 
