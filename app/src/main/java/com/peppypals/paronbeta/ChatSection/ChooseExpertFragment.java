@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import com.peppypals.paronbeta.EnterKidInfo.EnterKidNameFragment;
 import com.peppypals.paronbeta.R;
@@ -24,17 +25,28 @@ public class ChooseExpertFragment extends Fragment {
                              Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.fragment_choose_expert, container, false);
 
-        Button backDelaimBtn = (Button) view.findViewById(R.id.backDeclaimBtn);
-        backDelaimBtn.setOnClickListener(new View.OnClickListener() {
+        ImageView psykOption = (ImageView) view.findViewById(R.id.psykologOption);
+        psykOption.setOnClickListener(new View.OnClickListener() {
                                          @Override
                                          public void onClick(View v) {
-                                             Fragment fragment = new DeclaimFragment();
+                                             Fragment fragment = new PsykOptionFragment();
                                              FragmentManager fragmentManager = getFragmentManager();
                                              fragmentManager.beginTransaction().replace(android.R.id.content, fragment).commit();
                                          }
                                      }
         );
 
+
+        ImageView pedaOption = (ImageView) view.findViewById(R.id.pedagogOption);
+        pedaOption.setOnClickListener(new View.OnClickListener() {
+                                          @Override
+                                          public void onClick(View v) {
+                                              Fragment fragment = new PedaOptionFragment();
+                                              FragmentManager fragmentManager = getFragmentManager();
+                                              fragmentManager.beginTransaction().replace(android.R.id.content, fragment).commit();
+                                          }
+                                      }
+        );
         return view;
     }
 }

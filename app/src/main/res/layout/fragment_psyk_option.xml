@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:layout_constraintHorizontal_bias="0.0"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintRight_toRightOf="parent"
+    tools:layout_editor_absoluteY="-28dp">
+
+    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/cloud_low_bg"
+        tools:context="com.peppypals.paronbeta.ChatSection.ChooseExpertFragment">
+
+        <ImageView
+            android:id="@+id/chatBar"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:background="@color/chat_bar"
+            android:textAlignment="center"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_constraintLeft_creator="1"
+            tools:layout_constraintTop_creator="1" />
+
+        <Button
+            android:id="@+id/backDeclaimBtn"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/back"
+            app:layout_constraintBottom_toBottomOf="@+id/chatTitle"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/chatTitle"
+            tools:layout_constraintLeft_creator="1"
+            tools:layout_constraintTop_creator="1" />
+
+        <TextView
+            android:id="@+id/chatTitle"
+            android:layout_width="155dp"
+            android:layout_height="27dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/bocka_chatt"
+            android:textAlignment="center"
+            android:textColor="@android:color/background_light"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintHorizontal_bias="0.502"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_constraintLeft_creator="1"
+            tools:layout_constraintTop_creator="1" />
+
+        <ImageView
+            android:id="@+id/imageView21p"
+            android:layout_width="0dp"
+            android:layout_height="114dp"
+            android:background="@color/cloud_bg"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/chatBar"
+            app:srcCompat="@drawable/topbg" />
+
+        <TextView
+            android:id="@+id/chatExpertTitle"
+            android:layout_width="280dp"
+            android:layout_height="33dp"
+            android:layout_marginTop="46dp"
+            android:text="@string/with_whom"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/imageView21p" />
+
+        <Button
+            android:id="@+id/nextchatBtn"
+            android:layout_width="336dp"
+            android:layout_height="53dp"
+            android:layout_marginBottom="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            android:background="@drawable/chatgreen"
+            android:text="@string/next"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="@+id/pedagogOption"
+            app:layout_constraintRight_toRightOf="@+id/pedagogOption"
+            app:layout_constraintTop_toBottomOf="@+id/pedagogOption"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <ImageView
+            android:id="@+id/psykologOption"
+            android:layout_width="0dp"
+            android:layout_height="145dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintHorizontal_bias="0.51"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/chatExpertTitle"
+            app:srcCompat="@drawable/expbar" />
+
+        <ImageView
+            android:id="@+id/imageView20"
+            android:layout_width="80dp"
+            android:layout_height="92dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintBottom_toBottomOf="@+id/psykologOption"
+            app:layout_constraintLeft_toLeftOf="@+id/psykologOption"
+            app:layout_constraintTop_toTopOf="@+id/psykologOption"
+            app:srcCompat="@drawable/psypic" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="180dp"
+            android:layout_height="24dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/psy_title"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toRightOf="@+id/imageView20"
+            app:layout_constraintTop_toTopOf="@+id/imageView20" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="235dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/psy_text"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView20"
+            app:layout_constraintLeft_toLeftOf="@+id/textView"
+            app:layout_constraintTop_toBottomOf="@+id/textView"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <ImageView
+            android:id="@+id/pedagogOption"
+            android:layout_width="0dp"
+            android:layout_height="145dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintLeft_toLeftOf="@+id/psykologOption"
+            app:layout_constraintRight_toRightOf="@+id/psykologOption"
+            app:layout_constraintTop_toBottomOf="@+id/priceImg3"
+            app:srcCompat="@drawable/expbar" />
+
+        <ImageView
+            android:id="@+id/imageView24"
+            android:layout_width="80dp"
+            android:layout_height="92dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintBottom_toBottomOf="@+id/pedagogOption"
+            app:layout_constraintLeft_toLeftOf="@+id/imageView20"
+            app:layout_constraintRight_toRightOf="@+id/imageView20"
+            app:layout_constraintTop_toTopOf="@+id/pedagogOption"
+            app:srcCompat="@drawable/pedagog" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="180dp"
+            android:layout_height="24dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/pedagog_title"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toRightOf="@+id/imageView24"
+            app:layout_constraintTop_toTopOf="@+id/imageView24" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="235dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/pedagog_text"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView24"
+            app:layout_constraintLeft_toLeftOf="@+id/textView4"
+            app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+        <ImageView
+            android:id="@+id/imageView25"
+            android:layout_width="373dp"
+            android:layout_height="67dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="14dp"
+            app:layout_constraintHorizontal_bias="0.523"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView3"
+            app:srcCompat="@drawable/choosetime"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp" />
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="160dp"
+            android:layout_height="26dp"
+            android:layout_marginBottom="8dp"
+            android:text="@string/choose_price"
+            android:textAlignment="center"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView25"
+            app:layout_constraintHorizontal_bias="0.501"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <ImageView
+            android:id="@+id/priceImg1"
+            android:layout_width="283dp"
+            android:layout_height="43dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:background="@color/time_btn"
+            app:layout_constraintHorizontal_bias="0.503"
+            app:layout_constraintLeft_toLeftOf="@+id/imageView25"
+            app:layout_constraintRight_toRightOf="@+id/imageView25"
+            app:layout_constraintTop_toBottomOf="@+id/textView7"
+            app:srcCompat="@drawable/time_option_btn"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp" />
+
+        <ImageView
+            android:id="@+id/priceImg2"
+            android:layout_width="283dp"
+            android:layout_height="43dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:background="@color/time_btn"
+            app:layout_constraintLeft_toLeftOf="@+id/imageView25"
+            app:layout_constraintRight_toRightOf="@+id/imageView25"
+            app:layout_constraintTop_toBottomOf="@+id/priceImg1"
+            app:srcCompat="@drawable/time_option_btn"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp" />
+
+        <ImageView
+            android:id="@+id/priceImg3"
+            android:layout_width="283dp"
+            android:layout_height="43dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:background="@color/time_btn"
+            app:layout_constraintLeft_toLeftOf="@+id/imageView25"
+            app:layout_constraintRight_toRightOf="@+id/imageView25"
+            app:layout_constraintTop_toBottomOf="@+id/priceImg2"
+            app:srcCompat="@drawable/time_option_btn"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp" />
+
+        <ImageView
+            android:id="@+id/timer1"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintBottom_toTopOf="@+id/priceImg2"
+            app:layout_constraintLeft_toLeftOf="@+id/priceImg1"
+            app:layout_constraintTop_toTopOf="@+id/priceImg1"
+            app:srcCompat="@drawable/corner"
+            android:layout_marginStart="16dp" />
+
+        <TextView
+            android:id="@+id/timeprice1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/option2"
+            app:layout_constraintBottom_toTopOf="@+id/priceImg3"
+            app:layout_constraintLeft_toLeftOf="@+id/timeprice2"
+            app:layout_constraintRight_toRightOf="@+id/timeprice2"
+            app:layout_constraintTop_toTopOf="@+id/priceImg2"
+            app:layout_constraintVertical_bias="0.6" />
+
+        <TextView
+            android:id="@+id/timeprice2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/option1"
+            app:layout_constraintBottom_toTopOf="@+id/priceImg2"
+            app:layout_constraintLeft_toLeftOf="@+id/priceImg1"
+            app:layout_constraintRight_toRightOf="@+id/priceImg1"
+            app:layout_constraintTop_toTopOf="@+id/priceImg1"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp" />
+
+        <ImageView
+            android:id="@+id/timer2"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/priceImg3"
+            app:layout_constraintLeft_toLeftOf="@+id/priceImg2"
+            app:layout_constraintTop_toTopOf="@+id/priceImg2"
+            app:layout_constraintVertical_bias="0.428"
+            app:srcCompat="@drawable/half"
+            android:layout_marginStart="16dp" />
+
+        <ImageView
+            android:id="@+id/timer3"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintBottom_toBottomOf="@+id/priceImg3"
+            app:layout_constraintLeft_toLeftOf="@+id/priceImg3"
+            app:layout_constraintTop_toTopOf="@+id/priceImg3"
+            app:srcCompat="@drawable/third"
+            android:layout_marginStart="16dp" />
+
+        <TextView
+            android:id="@+id/timeprice3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+
+            android:layout_marginTop="8dp"
+            android:text="@string/option3"
+            app:layout_constraintBottom_toBottomOf="@+id/priceImg3"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toLeftOf="@+id/timeprice1"
+            app:layout_constraintRight_toRightOf="@+id/timeprice1"
+            app:layout_constraintTop_toTopOf="@+id/priceImg3" />
+
+        <ImageView
+            android:id="@+id/check1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tint="@color/add_kid_btn"
+            app:layout_constraintRight_toRightOf="@+id/priceImg1"
+            app:layout_constraintTop_toTopOf="@+id/priceImg1"
+            app:srcCompat="@drawable/ic_check"
+            app:layout_constraintBottom_toTopOf="@+id/priceImg2"
+            android:visibility="gone"/>
+
+        <ImageView
+            android:id="@+id/check2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tint="@color/add_kid_btn"
+            app:srcCompat="@drawable/ic_check"
+            app:layout_constraintTop_toTopOf="@+id/priceImg2"
+            app:layout_constraintBottom_toTopOf="@+id/priceImg3"
+            app:layout_constraintRight_toRightOf="@+id/priceImg2"
+            android:visibility="gone"/>
+
+        <ImageView
+            android:id="@+id/check3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tint="@color/add_kid_btn"
+            app:srcCompat="@drawable/ic_check"
+            app:layout_constraintRight_toRightOf="@+id/priceImg2"
+            app:layout_constraintTop_toTopOf="@+id/priceImg3"
+            app:layout_constraintBottom_toBottomOf="@+id/priceImg3"
+            android:visibility="gone"/>
+
+
+    </android.support.constraint.ConstraintLayout>
+</ScrollView>
+
+
+
+
+

@@ -216,6 +216,14 @@ och emotionella utveckling. </font></p>
     <string name="start_chat">Börja chatta!</string>
     <string name="no_chat_text">Du kan prova att chatta helt grattis med våra experter i 15 minuter. Du kan alltid återkomma till denna person för längre sessioner.</string>
     <string name="with_whom">Med vem vill du chatta med?</string>
+    <string name="psy_text">Med en våra psykologer kan du prata om exempel1, exempel2, exempel3,</string>
+    <string name="psy_title">Psykolog</string>
+    <string name="pedagog_title">Pedagog</string>
+    <string name="pedagog_text">Med en våra pedagoger kan du prata om exempel1, exempel2, exempel3,</string>
+    <string name="choose_price"><![CDATA[Välj tid & pris]]></string>
+    <string name="option1">15 min / 30kr</string>
+    <string name="option2">30 min / 50kr</string>
+    <string name="option3">45 min / 70kr</string>
 
 
 </resources>

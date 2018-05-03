@@ -23,7 +23,8 @@
     <color name="chat_bg">#efe8dd</color>
     <color name="cloud_bg">#e6e3e0</color>
     <color name="cloud_low_bg">#efe8dd</color>
-
+    <color name="chosen_time">#dfedcd</color>
+    <color name="time_btn">#f6f1ea</color>
 
 
 
