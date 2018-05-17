@@ -47,6 +47,7 @@ public class DiscoverFragment extends Fragment {
     private DiscoverVerticalAdapter verticalAdapter;
     private CollectionReference categoryRef;
     private CollectionReference adviceRef;
+    ArrayList<discoverModel> allData;
 
     public DiscoverFragment() {
 
@@ -59,69 +60,75 @@ public class DiscoverFragment extends Fragment {
 
         categoryRef = FirebaseFirestore.getInstance().collection("categories");
 
+        loadAllData();
         verticalRecyclerView = (RecyclerView) view.findViewById(R.id.discoverRecyclerview);
         verticalRecyclerView.setHasFixedSize(true);
 
         layoutManager = new LinearLayoutManager(getActivity());
         verticalRecyclerView.setLayoutManager(layoutManager);
+        verticalRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
 
-        categoryRef.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        if (task.isSuccessful()) {
-                            final ArrayList<discoverModel> verticalList = new ArrayList<>();
-                            final ArrayList<adviceModel> adviceList = new ArrayList<>();
+//        verticalAdapter = new DiscoverVerticalAdapter(allData);
+//        verticalRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
+//        verticalRecyclerView.setAdapter(verticalAdapter);
 
-                            for (final DocumentSnapshot documentMain : task.getResult()) {
-                                final String docMainId = documentMain.getId();
-
-                                adviceRef = categoryRef.document(docMainId ).collection("tips" );
-                                adviceList.clear();
-                                adviceRef.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                                    @RequiresApi(api = Build.VERSION_CODES.N)
-                                    @Override
-                                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                                        if (task.getResult().size()>0) {
-                                            int i=task.getResult().size();
-
-                                            for (DocumentSnapshot document : task.getResult()) {
-                                                i++;
-                                                if (document.exists()) {
-                                                    Log.d(TAG, document.getId() + " => " + document.getData());
-                                                    //form array list for questions
-                                                    adviceModel advice = document.toObject(adviceModel.class);
-
-                                                    adviceList.add(advice);
-
-                                                } else {
-                                                    Log.d(TAG, "no document has tips ", task.getException());
-                                                }
-                                            }
-                                            String categoryName = (String) documentMain.getData().get("name");
-                                            discoverModel verticalItem =new discoverModel(categoryName,adviceList);
-
-                                            verticalList.add(verticalItem);
-                                            verticalList.size();
-
-                                        } else {
-                                            Log.d(TAG, "Error getting documents: ", task.getException());
-                                        }
-
-                                        verticalAdapter = new DiscoverVerticalAdapter(verticalList);
-                                        verticalAdapter.notifyDataSetChanged();
-                                        verticalRecyclerView.setAdapter(verticalAdapter);
-
-                                    }
-
-                                });
-
-                            }
-                        } else {
-                            Log.d(TAG, "Error getting documents: ", task.getException());
-                        }
-
-                    }
-                });
+//        categoryRef.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+//                    @Override
+//                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+//                        if (task.isSuccessful()) {
+//                            final ArrayList<discoverModel> verticalList = new ArrayList<>();
+//                            final ArrayList<adviceModel> adviceList = new ArrayList<>();
+//
+//                            for (final DocumentSnapshot documentMain : task.getResult()) {
+//                                final String docMainId = documentMain.getId();
+//
+//                                adviceRef = categoryRef.document(docMainId ).collection("tips" );
+//                                adviceList.clear();
+//                                adviceRef.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+//                                    @RequiresApi(api = Build.VERSION_CODES.N)
+//                                    @Override
+//                                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+//                                        if (task.getResult().size()>0) {
+//                                            int i=task.getResult().size();
+//
+//                                            for (DocumentSnapshot document : task.getResult()) {
+//                                                i++;
+//                                                if (document.exists()) {
+//                                                    Log.d(TAG, document.getId() + " => " + document.getData());
+//                                                    //form array list for questions
+//                                                    adviceModel advice = document.toObject(adviceModel.class);
+//
+//                                                    adviceList.add(advice);
+//
+//                                                } else {
+//                                                    Log.d(TAG, "no document has tips ", task.getException());
+//                                                }
+//                                            }
+//                                            String categoryName = (String) documentMain.getData().get("name");
+//                                            discoverModel verticalItem =new discoverModel(categoryName,adviceList);
+//
+//                                            verticalList.add(verticalItem);
+//                                            verticalList.size();
+//
+//                                        } else {
+//                                            Log.d(TAG, "Error getting documents: ", task.getException());
+//                                        }
+//
+//                                        verticalAdapter = new DiscoverVerticalAdapter(verticalList);
+//                                        verticalAdapter.notifyDataSetChanged();
+//                                        verticalRecyclerView.setAdapter(verticalAdapter);
+//
+//                                    }
+//
+//                                });
+//
+//                            }
+//                        } else {
+//                            Log.d(TAG, "Error getting documents: ", task.getException());
+//                        }
+//
+//                    }
+//                });
 
 
 
@@ -142,5 +149,62 @@ public class DiscoverFragment extends Fragment {
     }
 
 
+    public void loadAllData() {
 
+        final discoverModel allCategory = new discoverModel();
+        final ArrayList<adviceModel> singleCategory = new ArrayList<adviceModel>();
+
+        categoryRef
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (final DocumentSnapshot documentMain : task.getResult()) {
+                                Log.d(TAG, documentMain.getId() + " => " + documentMain.getData());
+
+                                categoryRef.document(documentMain.getId()).collection("tips")
+                                        .get()
+                                        .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                                            @Override
+                                            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                                                if (task.isSuccessful()) {
+                                                    for (DocumentSnapshot document : task.getResult()) {
+                                                        if (document.exists()) {
+                                                        Log.d(TAG, document.getId() + " => " + document.getData());
+                                                        //form array list for questions
+                                                            adviceModel advice = document.toObject(adviceModel.class);
+                                                            singleCategory.add(advice);
+
+                                                        } else {
+                                                          Log.d(TAG, "no document has tips ", task.getException());
+                                                        }
+                                                    }
+
+                                                    allCategory.setHorizontalArrayList(singleCategory);
+                                                    String categoryName = (String) documentMain.getData().get("name");
+                                                    allCategory.setCategoryTitle(categoryName);
+                                                    allData.add(allCategory);
+
+                                                    verticalAdapter = new DiscoverVerticalAdapter( allData);
+
+                                                    verticalRecyclerView.setAdapter(verticalAdapter);
+                                                    verticalAdapter.notifyDataSetChanged();
+
+                                                } else {
+                                                    Log.d(TAG, "Error getting documents: ", task.getException());
+                                                }
+
+
+
+                                            }
+                                        });
+                            }
+
+                        } else {
+                            Log.d(TAG, "Error getting documents: ", task.getException());
+                        }
+                    }
+                });
+    }
 }

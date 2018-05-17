@@ -5,7 +5,8 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="@color/slide_bg"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:screenOrientation="portrait">
 
     <!-- ViewPager -->
     <android.support.v4.view.ViewPager

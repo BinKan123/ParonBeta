@@ -224,6 +224,11 @@ och emotionella utveckling. </font></p>
     <string name="option1">15 min / 30kr</string>
     <string name="option2">30 min / 50kr</string>
     <string name="option3">45 min / 70kr</string>
+    <string name="time_fit">Välj en tid som passar dig</string>
+    <string name="choose_time">Välj en tid</string>
+    <string name="option2p">30 min / 30kr</string>
+    <string name="option1p">15 min / 15kr</string>
+    <string name="option3p">45 min / 45kr</string>
 
 
 </resources>

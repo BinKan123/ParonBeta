@@ -6,11 +6,13 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.TextView;
 
 import com.peppypals.paronbeta.R;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 /**
@@ -21,21 +23,19 @@ public class DiscoverVerticalAdapter extends RecyclerView.Adapter <DiscoverVerti
 
     //adapter
     private  ArrayList<discoverModel> discoverData;
-    private static RecyclerView horizontalList;
-
+    private Context context;
 
     public DiscoverVerticalAdapter(ArrayList<discoverModel> discoverData) {
         this.discoverData = discoverData;
-
     }
-
 
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         private TextView categoryName;
-
         private AdviceAdapter horizontalAdapter;
+
+        private RecyclerView horizontalList;
 
         public ViewHolder(View itemView) {
             super(itemView);
@@ -43,11 +43,18 @@ public class DiscoverVerticalAdapter extends RecyclerView.Adapter <DiscoverVerti
 
             categoryName = itemView.findViewById(R.id.categoryName);
             horizontalList = (RecyclerView) itemView.findViewById(R.id.catItemRecyclerview);
+
             horizontalList.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false));
+            horizontalList.setNestedScrollingEnabled(false);
+            horizontalList.setHasFixedSize(true);
+            horizontalList.setAdapter(null);
 
-            horizontalAdapter = new AdviceAdapter();
-            horizontalList.setAdapter(horizontalAdapter);
 
+//          horizontalList.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false));
+
+//            horizontalAdapter = new AdviceAdapter();
+//            horizontalList.setAdapter(horizontalAdapter);
+//
         }
     }
 
@@ -60,23 +67,19 @@ public class DiscoverVerticalAdapter extends RecyclerView.Adapter <DiscoverVerti
 
     @Override
     public void onBindViewHolder(final DiscoverVerticalAdapter.ViewHolder holder, final int i) {
-        final discoverModel item = discoverData.get(i);
-        holder.categoryName.setText(item.getCategoryTitle());
-        holder.horizontalAdapter.setData(item.getHorizontalArrayList());
+        final discoverModel items = discoverData.get(i);
+        holder.categoryName.setText(items.getCategoryTitle());
+        holder.horizontalAdapter.setData(items.getHorizontalArrayList());
 
 
 
-       /* //add random color to imageview background
-        final Context context = holder.itemView.getContext();
-        int[] androidColors = context.getResources().getIntArray(R.array.androidcolors);
-        int randomAndroidColor = androidColors[new Random().nextInt(androidColors.length)];
-        holder.adviceBar.setColorFilter(randomAndroidColor);
-       */;
+        holder.horizontalAdapter.notifyDataSetChanged();
+
     }
 
     @Override
     public int getItemCount() {
-        return discoverData.size();
+        return ( discoverData == null ? 0 : discoverData.size());
     }
 
 }

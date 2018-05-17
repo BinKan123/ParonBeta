@@ -35,6 +35,8 @@ public class PsykOptionFragment extends Fragment {
     private ImageView timer3;
 
     private ImageView pedaOption;
+    private String chosenPrice;
+    private static final String CHOSEN_Expert = "Psykolog";
 
     public PsykOptionFragment () {
         // Required empty public constructor
@@ -51,13 +53,15 @@ public class PsykOptionFragment extends Fragment {
         timer1 = (ImageView) view.findViewById(R.id.timer1);
 
         option1On(view);
+        chosenPrice = timePrice1.getText().toString();
+
 
         priceImg2 = (ImageView) view.findViewById(R.id.priceImg2pe);
         check2 = (ImageView) view.findViewById(R.id.check2);
         timePrice2 = (TextView) view.findViewById(R.id.timeprice1pe);
         timer2 = (ImageView) view.findViewById(R.id.timer2);
 
-        priceImg3 = (ImageView) view.findViewById(R.id.priceImg3pe);
+        priceImg3 = (ImageView) view.findViewById(R.id.timebg);
         check3 = (ImageView) view.findViewById(R.id.check3);
         timePrice3 = (TextView) view.findViewById(R.id.timeprice3);
         timer3 = (ImageView) view.findViewById(R.id.timer3);
@@ -68,7 +72,7 @@ public class PsykOptionFragment extends Fragment {
                                               option1On(view);
                                               option2Off(view);
                                               option3Off(view);
-
+                                              chosenPrice = timePrice1.getText().toString();
                                           }
                                       }
         );
@@ -79,7 +83,7 @@ public class PsykOptionFragment extends Fragment {
                                              option2On(view);
                                              option1Off(view);
                                              option3Off(view);
-
+                                             chosenPrice = timePrice2.getText().toString();
                                          }
                                      }
         );
@@ -90,17 +94,16 @@ public class PsykOptionFragment extends Fragment {
                                              option3On(view);
                                              option1Off(view);
                                              option2Off(view);
-
+                                             chosenPrice = timePrice3.getText().toString();
                                          }
                                      }
         );
-
+        final FragmentManager fragmentManager = getFragmentManager();
         Button backDeclaim = (Button) view.findViewById(R.id.backDeclBtn);
         backDeclaim.setOnClickListener(new View.OnClickListener() {
                                           @Override
                                           public void onClick(View v) {
                                               Fragment fragment = new DeclaimFragment();
-                                              FragmentManager fragmentManager = getFragmentManager();
                                               fragmentManager.beginTransaction().replace(android.R.id.content, fragment).commit();
                                           }
                                       }
@@ -111,11 +114,27 @@ public class PsykOptionFragment extends Fragment {
                                           @Override
                                           public void onClick(View v) {
                                               Fragment fragment = new PedaOptionFragment();
-                                              FragmentManager fragmentManager = getFragmentManager();
                                               fragmentManager.beginTransaction().replace(android.R.id.content, fragment).commit();
                                           }
                                       }
         );
+
+        Button toChooseSlot = (Button) view.findViewById(R.id.nextTimeBtn);
+        toChooseSlot.setOnClickListener(new View.OnClickListener() {
+                                           @Override
+                                           public void onClick(View v) {
+
+                                               //send the chosen price to next step
+                                               Bundle arguments = new Bundle();
+                                               arguments.putString("chosenExpert", CHOSEN_Expert);
+                                               arguments.putString("chosenPrice", chosenPrice);
+                                               ChooseTimeSlotFragment goToFragment = new ChooseTimeSlotFragment();
+                                               goToFragment.setArguments(arguments);
+                                               fragmentManager.beginTransaction().replace(android.R.id.content, goToFragment).commit();
+                                           }
+                                       }
+        );
+
         return view;
     }
 

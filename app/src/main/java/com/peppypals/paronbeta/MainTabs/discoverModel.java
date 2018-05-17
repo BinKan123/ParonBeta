@@ -9,10 +9,9 @@ import java.util.ArrayList;
  * Created by kanbi on 19/04/2018.
  */
 
-public class discoverModel {
+public class discoverModel extends ArrayList<adviceModel> {
     private String categoryTitle;
     private ArrayList<adviceModel> horizontalArrayList;
-    //private RecyclerView horizontalView;
 
     public discoverModel() {
 
@@ -21,7 +20,6 @@ public class discoverModel {
     public discoverModel(String categoryTitle,ArrayList<adviceModel> horizontalArrayList) {
         this.categoryTitle = categoryTitle;
         this.horizontalArrayList =  horizontalArrayList;
-        //this.horizontalView = horizontalView;
     }
 
     public String getCategoryTitle() {
@@ -40,12 +38,4 @@ public class discoverModel {
         this.horizontalArrayList = horizontalArrayList;
     }
 
-
-//    public RecyclerView getHorizontalView() {
-//        return horizontalView;
-//    }
-//
-//    public void setHorizontalView(RecyclerView horizontalView) {
-//        this.horizontalView = horizontalView;
-//    }
 }

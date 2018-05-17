@@ -22,7 +22,7 @@ public class ChooseExpertFragment extends Fragment {
                              Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.fragment_choose_expert, container, false);
 
-        ImageView psykOption = (ImageView) view.findViewById(R.id.psykologOptionPe);
+        ImageView psykOption = (ImageView) view.findViewById(R.id.expertImg);
         psykOption.setOnClickListener(new View.OnClickListener() {
                                          @Override
                                          public void onClick(View v) {

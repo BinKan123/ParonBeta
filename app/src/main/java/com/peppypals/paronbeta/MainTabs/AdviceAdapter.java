@@ -20,6 +20,7 @@ import com.google.firebase.firestore.QuerySnapshot;
 import com.peppypals.paronbeta.R;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 /**
@@ -34,9 +35,9 @@ public class AdviceAdapter extends RecyclerView.Adapter <AdviceAdapter.ViewHolde
         void btnClick(adviceModel itemClicked);
     }
 
-    private ArrayList<adviceModel> adviceData;
+    private List<adviceModel> adviceData;
 
-    public AdviceAdapter(ArrayList<adviceModel> adviceData, ButtonClickListner onClicklistener) {
+    public AdviceAdapter(List<adviceModel> adviceData, ButtonClickListner onClicklistener) {
         this.adviceData = adviceData;
         this.onClicklistener = onClicklistener;
     }
@@ -44,8 +45,11 @@ public class AdviceAdapter extends RecyclerView.Adapter <AdviceAdapter.ViewHolde
     public AdviceAdapter() {
     }
 
+    public AdviceAdapter(List<adviceModel> adviceData) {
+        this.adviceData = adviceData;
+    }
 
-    public void setData(ArrayList<adviceModel> data) {
+    public void setData(List<adviceModel> data) {
         if (adviceData!= data) {
             adviceData = data;
             notifyDataSetChanged();

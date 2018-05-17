@@ -18,6 +18,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -105,10 +106,27 @@ public class HomeFragment extends Fragment implements AdviceAdapter.ButtonClickL
 
                                                     int adviceCount = adviceList.size();
                                                     int randomNumber = new Random().nextInt(adviceCount);
-                                                    adviceModel randomAdvice = adviceList.get(randomNumber);
+                                                    final adviceModel randomAdvice = adviceList.get(randomNumber);
 
                                                     TextView dailyQuestionText = (TextView)view.findViewById(R.id.dailyQuestion);
                                                     dailyQuestionText.setText(randomAdvice.getQuestion());
+
+                                                    Button moreInfo = (Button)view.findViewById(R.id.readMoreBtn);
+                                                    moreInfo.setOnClickListener(new View.OnClickListener() {
+                                                        @Override
+                                                        public void onClick(View v) {
+                                                            Intent intent = new Intent(getActivity(), HomeAdviceActivity.class);
+
+                                                            intent.putExtra("adviceQuestion", randomAdvice.getQuestion());
+                                                            intent.putExtra("questionID", randomAdvice.getQuestionId());
+
+
+                                                            getActivity().startActivity(intent);
+
+                                                        }
+                                                    });
+
+
 
                                                     //update on daily basis
                                                     /*final Calendar calendar = Calendar.getInstance();

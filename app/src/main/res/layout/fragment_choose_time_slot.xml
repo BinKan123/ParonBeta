@@ -1,13 +1,273 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.peppypals.paronbeta.ChatSection.ChooseTimeSlotFragment">
+    android:background="@color/cloud_low_bg"
+    tools:context="com.peppypals.paronbeta.ChatSection.ChooseExpertFragment">
 
-    <!-- TODO: Update blank fragment layout -->
+    <ImageView
+        android:id="@+id/chatBar"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:background="@color/chat_bar"
+        android:textAlignment="center"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintTop_creator="1" />
+
+    <Button
+        android:id="@+id/backChooseBtn"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/back"
+        app:layout_constraintBottom_toBottomOf="@+id/chatTitle"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/chatTitle"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintTop_creator="1" />
+
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:id="@+id/chatTitle"
+        android:layout_width="155dp"
+        android:layout_height="27dp"
+        android:text="@string/bocka_chatt"
+        android:textAlignment="center"
+        android:textColor="@android:color/background_light"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/chatBar"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        android:layout_marginTop="16dp"
+        tools:layout_constraintLeft_creator="1"
+        android:layout_marginBottom="17dp"
+        app:layout_constraintVertical_bias="1.0" />
+    <ImageView
+        android:id="@+id/imageView21p"
+        android:layout_width="0dp"
+        android:layout_height="114dp"
+        android:background="@color/cloud_bg"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/chatBar"
+        app:srcCompat="@drawable/topbg" />
 
-</FrameLayout>
+    <Button
+        android:id="@+id/nextchatBtn"
+        android:layout_width="287dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:background="@drawable/chatgreen"
+        android:text="@string/next"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginRight="16dp"
+        app:layout_constraintRight_toRightOf="@+id/timerecyclerview"
+        android:layout_marginLeft="16dp"
+        app:layout_constraintLeft_toLeftOf="@+id/timerecyclerview" />
+
+    <ImageView
+        android:id="@+id/expertImg"
+        android:layout_width="match_parent"
+        android:layout_height="78dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView21p"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView21p"
+        app:srcCompat="@drawable/chosenexpert" />
+
+    <ImageView
+        android:id="@+id/expertIcon"
+        android:layout_width="63dp"
+        android:layout_height="60dp"
+        app:layout_constraintBottom_toBottomOf="@+id/expertImg"
+        app:srcCompat="@drawable/psypic"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintTop_toTopOf="@+id/expertImg"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="@+id/expertImg"
+        app:layout_constraintRight_toLeftOf="@+id/expertName"
+        android:layout_marginRight="8dp"
+        app:layout_constraintHorizontal_bias="0.392"
+        android:layout_marginEnd="8dp" />
+
+    <TextView
+        android:id="@+id/expertName"
+        android:layout_width="105dp"
+        android:layout_height="29dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/psy_title"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/expertIcon"
+        app:layout_constraintHorizontal_bias="0.51"
+        app:layout_constraintLeft_toLeftOf="@+id/expertImg"
+        app:layout_constraintRight_toRightOf="@+id/expertImg"
+        app:layout_constraintTop_toTopOf="@+id/expertIcon"
+        app:layout_constraintVertical_bias="0.571" />
+
+
+    <TextView
+        android:id="@+id/timePriceText"
+        android:layout_width="64dp"
+        android:layout_height="27dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:text="TextView"
+        android:textAlignment="textEnd"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/expertName"
+        app:layout_constraintHorizontal_bias="0.485"
+        app:layout_constraintLeft_toRightOf="@+id/expertName"
+        app:layout_constraintRight_toRightOf="@+id/expertImg"
+        app:layout_constraintTop_toTopOf="@+id/expertName"
+        app:layout_constraintVertical_bias="0.0" />
+
+
+    <ImageView
+        android:id="@+id/chooseDate"
+        android:layout_width="match_parent"
+        android:layout_height="78dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView10"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/chosenexpert" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="228dp"
+        android:layout_height="23dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/time_fit"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView21p" />
+
+    <ImageView
+        android:id="@+id/dayBeforeBtn"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/chooseDate"
+        app:layout_constraintLeft_toLeftOf="@+id/expertIcon"
+        app:layout_constraintTop_toTopOf="@+id/chooseDate"
+        app:srcCompat="@drawable/last" />
+
+    <ImageView
+        android:id="@+id/dayAfterBtn"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/chooseDate"
+        app:layout_constraintRight_toRightOf="@+id/timePriceText"
+        app:layout_constraintTop_toTopOf="@+id/chooseDate"
+        app:srcCompat="@drawable/next" />
+
+    <TextView
+        android:id="@+id/dayText"
+        android:layout_width="105dp"
+        android:layout_height="29dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Idag"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/chooseDate"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="@+id/expertName"
+        app:layout_constraintRight_toRightOf="@+id/expertName"
+        app:layout_constraintTop_toTopOf="@+id/chooseDate"
+        app:layout_constraintVertical_bias="0.606" />
+
+    <ImageView
+        android:id="@+id/imageView25"
+        android:layout_width="373dp"
+        android:layout_height="67dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        app:layout_constraintHorizontal_bias="0.476"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:srcCompat="@drawable/choosetime"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintTop_toBottomOf="@+id/chooseDate" />
+
+    <TextView
+        android:id="@+id/function"
+        android:layout_width="160dp"
+        android:layout_height="26dp"
+        android:layout_marginBottom="8dp"
+        android:text="@string/choose_time"
+        android:textAlignment="center"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView25"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <android.support.v7.widget.RecyclerView
+
+        android:id="@+id/timerecyclerview"
+        android:layout_width="287dp"
+        android:layout_height="153dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_weight="0.86"
+        android:scrollbars="vertical"
+        app:layout_constraintLeft_toLeftOf="@+id/imageView25"
+        app:layout_constraintRight_toRightOf="@+id/imageView25"
+        app:layout_constraintTop_toBottomOf="@+id/imageView25" />
+
+</android.support.constraint.ConstraintLayout>
