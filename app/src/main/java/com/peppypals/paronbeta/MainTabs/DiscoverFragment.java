@@ -151,9 +151,7 @@ public class DiscoverFragment extends Fragment {
 
     public void loadAllData() {
 
-        final discoverModel allCategory = new discoverModel();
-        final ArrayList<adviceModel> singleCategory = new ArrayList<adviceModel>();
-
+        allData = new ArrayList<>();
         categoryRef
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -162,13 +160,14 @@ public class DiscoverFragment extends Fragment {
                         if (task.isSuccessful()) {
                             for (final DocumentSnapshot documentMain : task.getResult()) {
                                 Log.d(TAG, documentMain.getId() + " => " + documentMain.getData());
-
+                                final discoverModel allCategory = new discoverModel();
                                 categoryRef.document(documentMain.getId()).collection("tips")
                                         .get()
                                         .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                                             @Override
                                             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                                                 if (task.isSuccessful()) {
+                                                    final ArrayList<adviceModel> singleCategory = new ArrayList<adviceModel>();
                                                     for (DocumentSnapshot document : task.getResult()) {
                                                         if (document.exists()) {
                                                         Log.d(TAG, document.getId() + " => " + document.getData());
