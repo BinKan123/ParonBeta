@@ -47,7 +47,8 @@ public class DiscoverVerticalAdapter extends RecyclerView.Adapter <DiscoverVerti
             horizontalList.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false));
             horizontalList.setNestedScrollingEnabled(false);
             horizontalList.setHasFixedSize(true);
-            horizontalList.setAdapter(null);
+            horizontalAdapter = new AdviceAdapter(null);
+            horizontalList.setAdapter(horizontalAdapter);
 
 
 //          horizontalList.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false));
@@ -70,9 +71,6 @@ public class DiscoverVerticalAdapter extends RecyclerView.Adapter <DiscoverVerti
         final discoverModel items = discoverData.get(i);
         holder.categoryName.setText(items.getCategoryTitle());
         holder.horizontalAdapter.setData(items.getHorizontalArrayList());
-
-
-
         holder.horizontalAdapter.notifyDataSetChanged();
 
     }
