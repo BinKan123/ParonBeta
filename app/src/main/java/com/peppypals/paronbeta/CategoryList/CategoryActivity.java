@@ -51,7 +51,6 @@ public class CategoryActivity extends AppCompatActivity {
     private FirebaseAuth firebaseAuth;
     private CollectionReference favRef;
     private String uid;
-    private ListenerRegistration firestoreListener;
     private GridLayoutManager gridLayoutManager;
     private Query query;
     private boolean addFav = false;

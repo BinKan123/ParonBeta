@@ -60,17 +60,18 @@ public class DiscoverFragment extends Fragment {
 
         categoryRef = FirebaseFirestore.getInstance().collection("categories");
 
-        loadAllData();
+
         verticalRecyclerView = (RecyclerView) view.findViewById(R.id.discoverRecyclerview);
         verticalRecyclerView.setHasFixedSize(true);
 
         layoutManager = new LinearLayoutManager(getActivity());
         verticalRecyclerView.setLayoutManager(layoutManager);
         verticalRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
+        loadAllData();
 
-//        verticalAdapter = new DiscoverVerticalAdapter(allData);
-//        verticalRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
-//        verticalRecyclerView.setAdapter(verticalAdapter);
+       // verticalAdapter = new DiscoverVerticalAdapter(allData);
+        verticalRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
+       // verticalRecyclerView.setAdapter(verticalAdapter);
 
 //        categoryRef.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
 //                    @Override
@@ -129,7 +130,7 @@ public class DiscoverFragment extends Fragment {
 //
 //                    }
 //                });
-
+//
 
 
         Button logout = (Button) view.findViewById(R.id.logOut);
@@ -150,9 +151,7 @@ public class DiscoverFragment extends Fragment {
 
 
     public void loadAllData() {
-
-        final discoverModel allCategory = new discoverModel();
-        final ArrayList<adviceModel> singleCategory = new ArrayList<adviceModel>();
+        allData = new ArrayList<>();
 
         categoryRef
                 .get()
@@ -163,12 +162,15 @@ public class DiscoverFragment extends Fragment {
                             for (final DocumentSnapshot documentMain : task.getResult()) {
                                 Log.d(TAG, documentMain.getId() + " => " + documentMain.getData());
 
+                                final discoverModel allCategory = new discoverModel();
+                                final ArrayList<adviceModel> singleCategory = new ArrayList<adviceModel>();
                                 categoryRef.document(documentMain.getId()).collection("tips")
                                         .get()
                                         .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                                             @Override
                                             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                                                 if (task.isSuccessful()) {
+
                                                     for (DocumentSnapshot document : task.getResult()) {
                                                         if (document.exists()) {
                                                         Log.d(TAG, document.getId() + " => " + document.getData());
@@ -181,21 +183,21 @@ public class DiscoverFragment extends Fragment {
                                                         }
                                                     }
 
-                                                    allCategory.setHorizontalArrayList(singleCategory);
-                                                    String categoryName = (String) documentMain.getData().get("name");
-                                                    allCategory.setCategoryTitle(categoryName);
-                                                    allData.add(allCategory);
+                                                    if(singleCategory.size()> 0){
+                                                        allCategory.setHorizontalArrayList(singleCategory);
+                                                        String categoryName = (String) documentMain.getData().get("name");
+                                                        allCategory.setCategoryTitle(categoryName);
+                                                        allData.add(allCategory);
 
-                                                    verticalAdapter = new DiscoverVerticalAdapter( allData);
+                                                        verticalAdapter = new DiscoverVerticalAdapter( allData);
 
-                                                    verticalRecyclerView.setAdapter(verticalAdapter);
-                                                    verticalAdapter.notifyDataSetChanged();
+                                                        verticalRecyclerView.setAdapter(verticalAdapter);
+                                                        verticalAdapter.notifyDataSetChanged();
+                                                    }
 
                                                 } else {
                                                     Log.d(TAG, "Error getting documents: ", task.getException());
                                                 }
-
-
 
                                             }
                                         });

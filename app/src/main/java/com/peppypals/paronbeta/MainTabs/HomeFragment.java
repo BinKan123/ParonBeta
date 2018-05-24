@@ -120,13 +120,10 @@ public class HomeFragment extends Fragment implements AdviceAdapter.ButtonClickL
                                                             intent.putExtra("adviceQuestion", randomAdvice.getQuestion());
                                                             intent.putExtra("questionID", randomAdvice.getQuestionId());
 
-
                                                             getActivity().startActivity(intent);
 
                                                         }
                                                     });
-
-
 
                                                     //update on daily basis
                                                     /*final Calendar calendar = Calendar.getInstance();
@@ -140,7 +137,6 @@ public class HomeFragment extends Fragment implements AdviceAdapter.ButtonClickL
                                                         editor.putInt("lastTimeDate", currentDate);
                                                         editor.commit();
                                                     }*/
-
 
                                                     //add data to recommend list
                                                     layoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL,false);

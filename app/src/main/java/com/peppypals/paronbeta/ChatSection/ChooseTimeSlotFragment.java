@@ -129,6 +129,9 @@ public class ChooseTimeSlotFragment extends Fragment {
                     dayText.setText(TODAY_SV);
                     dayBefore.setColorFilter(Color.parseColor(NOT_CHOSEN_ARROW));
                     loadAvailableTime(TODAY_EN);
+
+                    adapter.startListening();
+                    adapter.notifyDataSetChanged();
                 }
             }
         });
@@ -141,6 +144,8 @@ public class ChooseTimeSlotFragment extends Fragment {
                     dayText.setText(TOMO_SV);
                     dayBefore.setColorFilter(Color.parseColor(CHOSEN_ARROW));
                     loadAvailableTime(TOMO_EN);
+                    adapter.startListening();
+                    adapter.notifyDataSetChanged();
                 }
             }
         });
@@ -168,7 +173,7 @@ public class ChooseTimeSlotFragment extends Fragment {
         uid = firebaseAuth.getCurrentUser().getUid();
         firestoreDB = FirebaseFirestore.getInstance();
 
-        query = firestoreDB.collection("bookExpert").document(MAIN_DOCID).collection(chosenExpert).orderBy("id").whereEqualTo(dayOfBooking,"on");
+        query = firestoreDB.collection("bookExpert").document(MAIN_DOCID).collection(chosenExpert).orderBy("id").whereEqualTo(dayOfBooking,"on");;
                 //.whereEqualTo(dayOfBooking,"on");
 
         FirestoreRecyclerOptions<timeSlotModel> response = new FirestoreRecyclerOptions.Builder<timeSlotModel>()
@@ -185,7 +190,7 @@ public class ChooseTimeSlotFragment extends Fragment {
                 holder.timeSlot.setText(model.getTime());
 
                 //keep the color on according to status of buttons
-                holder.timeChosenBtn(holder,docId, model);
+                // holder.timeChosenBtn(holder,docId, model);
 
                 holder.timeBar.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -266,8 +271,6 @@ public class ChooseTimeSlotFragment extends Fragment {
             @Override
             public void onError(FirebaseFirestoreException e) {
                 Log.e("error", e.getMessage());
-//                Toast.makeText(getActivity(), e.getMessage(),
-//                        Toast.LENGTH_SHORT).show();
             }
         };
         recyclerView.setHasFixedSize(true);

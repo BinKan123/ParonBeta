@@ -42,18 +42,16 @@ public class AdviceAdapter extends RecyclerView.Adapter <AdviceAdapter.ViewHolde
         this.onClicklistener = onClicklistener;
     }
 
-    public AdviceAdapter() {
-    }
-
     public AdviceAdapter(List<adviceModel> adviceData) {
         this.adviceData = adviceData;
     }
 
-    public void setData(List<adviceModel> data) {
+    public void setData(List<adviceModel> data,ButtonClickListner onClicklistener) {
         if (adviceData!= data) {
             adviceData = data;
             notifyDataSetChanged();
         }
+        this.onClicklistener = onClicklistener;
     }
 
 

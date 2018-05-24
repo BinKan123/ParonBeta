@@ -68,7 +68,6 @@ public class InfoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_info);
 
-
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseFirestore = FirebaseFirestore.getInstance();
         uid = firebaseAuth.getCurrentUser().getUid();
@@ -91,8 +90,6 @@ public class InfoActivity extends AppCompatActivity {
                         }
                     }
                 });
-
-
 
         TextView importantText = (TextView) findViewById(R.id.importantText);
         importantText.setText(Html.fromHtml(getString(R.string.importantInfo)));

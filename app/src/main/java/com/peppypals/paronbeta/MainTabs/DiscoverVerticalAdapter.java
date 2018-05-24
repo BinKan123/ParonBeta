@@ -1,6 +1,7 @@
 package com.peppypals.paronbeta.MainTabs;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -8,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.peppypals.paronbeta.R;
 
@@ -19,16 +21,16 @@ import java.util.Random;
  * Created by kanbi on 19/04/2018.
  */
 
-public class DiscoverVerticalAdapter extends RecyclerView.Adapter <DiscoverVerticalAdapter.ViewHolder>{
+public class DiscoverVerticalAdapter extends RecyclerView.Adapter <DiscoverVerticalAdapter.ViewHolder> implements AdviceAdapter.ButtonClickListner{
 
     //adapter
     private  ArrayList<discoverModel> discoverData;
+    private AdviceAdapter.ButtonClickListner onClicklistener;
     private Context context;
 
     public DiscoverVerticalAdapter(ArrayList<discoverModel> discoverData) {
         this.discoverData = discoverData;
     }
-
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
@@ -39,7 +41,7 @@ public class DiscoverVerticalAdapter extends RecyclerView.Adapter <DiscoverVerti
 
         public ViewHolder(View itemView) {
             super(itemView);
-            Context context = itemView.getContext();
+            context = itemView.getContext();
 
             categoryName = itemView.findViewById(R.id.categoryName);
             horizontalList = (RecyclerView) itemView.findViewById(R.id.catItemRecyclerview);
@@ -47,14 +49,9 @@ public class DiscoverVerticalAdapter extends RecyclerView.Adapter <DiscoverVerti
             horizontalList.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false));
             horizontalList.setNestedScrollingEnabled(false);
             horizontalList.setHasFixedSize(true);
-            horizontalList.setAdapter(null);
 
-
-//          horizontalList.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false));
-
-//            horizontalAdapter = new AdviceAdapter();
-//            horizontalList.setAdapter(horizontalAdapter);
-//
+            horizontalAdapter = new AdviceAdapter(null);
+            horizontalList.setAdapter(horizontalAdapter);
         }
     }
 
@@ -69,9 +66,7 @@ public class DiscoverVerticalAdapter extends RecyclerView.Adapter <DiscoverVerti
     public void onBindViewHolder(final DiscoverVerticalAdapter.ViewHolder holder, final int i) {
         final discoverModel items = discoverData.get(i);
         holder.categoryName.setText(items.getCategoryTitle());
-        holder.horizontalAdapter.setData(items.getHorizontalArrayList());
-
-
+        holder.horizontalAdapter.setData(items.getHorizontalArrayList(),DiscoverVerticalAdapter.this);
 
         holder.horizontalAdapter.notifyDataSetChanged();
 
@@ -80,6 +75,16 @@ public class DiscoverVerticalAdapter extends RecyclerView.Adapter <DiscoverVerti
     @Override
     public int getItemCount() {
         return ( discoverData == null ? 0 : discoverData.size());
+    }
+
+    @Override
+    public void btnClick(adviceModel itemClicked) {
+        Intent intent = new Intent(context, HomeAdviceActivity.class);
+
+        intent.putExtra("adviceQuestion", itemClicked.getQuestion());
+        intent.putExtra("questionID", itemClicked.getQuestionId());
+
+        context.startActivity(intent);
     }
 
 }
