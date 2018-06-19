@@ -56,6 +56,7 @@ public class ChooseTimeSlotFragment extends Fragment {
     private static final String CHOSEN_PEDA = "Pedagog";
     private static final String CHOSEN_ARROW = "#6d6a6a";
     private static final String NOT_CHOSEN_ARROW = "#DBD6D6";
+    private static final String BOOKED_OFF = "#A9A9A9";
     private static final String TODAY_SV = "Idag";
     private static final String TODAY_EN = "today";
     private static final String TOMO_SV = "Imorgon";
@@ -69,6 +70,7 @@ public class ChooseTimeSlotFragment extends Fragment {
     private FirestoreRecyclerAdapter adapter;
     private FirebaseFirestore firestoreDB;
     private CollectionReference bookingRef;
+    private CollectionReference bookingStatusRef;
     private static final String MAIN_DOCID = "hf7jUBD2HBRUkLTnMqBE";
     private FirebaseAuth firebaseAuth;
     private String uid;
@@ -165,6 +167,18 @@ public class ChooseTimeSlotFragment extends Fragment {
                                           }
                                       }
         );
+
+        Button timeChosenBtn = (Button) view.findViewById(R.id.nextchatBtn);
+        timeChosenBtn.setOnClickListener(new View.OnClickListener() {
+                                             @Override
+                                             public void onClick(View v) {
+                                                 Fragment fragment = new BillingFragment();
+                                             fragmentManager.beginTransaction().replace(android.R.id.content, fragment).commit();
+
+                                             }
+                                         }
+        );
+
         return view;
     }
 
@@ -173,7 +187,7 @@ public class ChooseTimeSlotFragment extends Fragment {
         uid = firebaseAuth.getCurrentUser().getUid();
         firestoreDB = FirebaseFirestore.getInstance();
 
-        query = firestoreDB.collection("bookExpert").document(MAIN_DOCID).collection(chosenExpert).orderBy("id").whereEqualTo(dayOfBooking,"on");;
+        query = firestoreDB.collection("bookExpert").document(MAIN_DOCID).collection(chosenExpert).orderBy("id");
                 //.whereEqualTo(dayOfBooking,"on");
 
         FirestoreRecyclerOptions<timeSlotModel> response = new FirestoreRecyclerOptions.Builder<timeSlotModel>()
@@ -188,6 +202,24 @@ public class ChooseTimeSlotFragment extends Fragment {
                 final String docId = getSnapshots().getSnapshot(position).getId();
 
                 holder.timeSlot.setText(model.getTime());
+
+                //to make sure only chosen time on chosen day should be highlighted
+                bookingRef. whereEqualTo("date", dayOfBooking)
+                        .get()
+                        .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                            @Override
+                            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                                if (task.isSuccessful()) {
+                                    for (DocumentSnapshot document : task.getResult()) {
+                                        Log.d(TAG, document.getId() + " => " + document.getData());
+                                        holder.timeChosenBtn(holder,docId);
+                                    }
+                                } else {
+                                    Log.d(TAG, "Error getting documents: ", task.getException());
+                                }
+                            }
+                        });
+
 
                 //keep the color on according to status of buttons
                 // holder.timeChosenBtn(holder,docId, model);
@@ -210,7 +242,7 @@ public class ChooseTimeSlotFragment extends Fragment {
                                             if (documentSnapshot.exists()){
                                                 Log.e(TAG, "Exits");
 
-                                                holder.timeChosenBtn(holder,docId, model);
+                                                holder.timeChosenBtn(holder,docId);
 
                                                 bookingRef.document(docId).delete().addOnSuccessListener(new OnSuccessListener<Void>() {
                                                     @Override
@@ -222,7 +254,7 @@ public class ChooseTimeSlotFragment extends Fragment {
 
                                             }else{
                                                 Log.e(TAG,"Not Exits");
-                                                holder.timeChosenBtn(holder,docId, model);
+                                                holder.timeChosenBtn(holder,docId);
 
                                                 Map<String, Object> bookingInfo =  new HashMap<>();
                                                 bookingInfo.put("chosenExpert", chosenExpert);
@@ -293,6 +325,7 @@ public class ChooseTimeSlotFragment extends Fragment {
             itemView.setOnClickListener(this);
 
             bookingRef = FirebaseFirestore.getInstance().collection("users").document(uid).collection("bookedExpert");
+            bookingStatusRef = FirebaseFirestore.getInstance().collection("bookExpert").document(MAIN_DOCID).collection(chosenExpert);
         }
 
         @Override
@@ -300,7 +333,7 @@ public class ChooseTimeSlotFragment extends Fragment {
 
         }
 
-        public void timeChosenBtn(final TimeSlotViewholder holder, final String docId, final timeSlotModel model){
+        public void timeChosenBtn(final TimeSlotViewholder holder, final String docId){
             bookingRef.document().addSnapshotListener(new EventListener<DocumentSnapshot>() {
                 @Override
                 public void onEvent(@Nullable DocumentSnapshot snapshot,
@@ -330,6 +363,7 @@ public class ChooseTimeSlotFragment extends Fragment {
                 }
             });
         }
+
     }
 
     @Override

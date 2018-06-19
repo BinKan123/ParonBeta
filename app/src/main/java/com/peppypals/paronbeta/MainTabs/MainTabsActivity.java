@@ -1,14 +1,18 @@
 package com.peppypals.paronbeta.MainTabs;
 
+import android.support.v4.app.Fragment;
+import android.app.FragmentManager;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -36,10 +40,8 @@ import com.peppypals.paronbeta.SplashActivity;
 public class MainTabsActivity extends AppCompatActivity {
     private static final String TAG = "MainTabsActivity";
 
-    private FirebaseAuth firebaseAuth;
-    private String uid;
-    private FirebaseUser currentUser;
-    private Query childrenRef;
+    private BottomNavigationView bottomNavigation;
+    private android.support.v4.app.FragmentManager fragmentManager;
 
     private NavPageAdapter navPageAdapter;
     private ViewPager mViewPager;
@@ -56,9 +58,9 @@ public class MainTabsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_tabs);
-
-        //use viewpager to create navigationbar
-
+//
+//        //use viewpager to create navigationbar
+//
         mViewPager = (ViewPager) findViewById(R.id.container);
         tabLayout = (TabLayout) findViewById(R.id.tabs);
 
@@ -95,7 +97,7 @@ public class MainTabsActivity extends AppCompatActivity {
 
     }
 
-    //viewpager
+//    //viewpager
     private void setupViewPager(ViewPager viewPager){
         NavPageAdapter adapter=new NavPageAdapter(getSupportFragmentManager());
         adapter.addFragment(new HomeFragment(),"");
@@ -121,5 +123,44 @@ public class MainTabsActivity extends AppCompatActivity {
 
         return;
     }
+
+        //  use FragmentTransaction to make navigationbar
+        //Navigation Fragment
+
+        /*bottomNavigation = (BottomNavigationView) findViewById(R.id.bottomNav);
+        bottomNavigation.inflateMenu(R.menu.menu_main);
+        fragmentManager = getSupportFragmentManager();
+        bottomNavigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                int id = item.getItemId();
+                Fragment fragment = null;
+                switch (id) {
+                    case R.id.home:
+                        fragment = new HomeFragment();
+                        break;
+                    case R.id.search:
+                        fragment = new DiscoverFragment();
+                        break;
+                    case R.id.my:
+                        fragment = new MyPageFragment();
+                        break;
+                    case R.id.chat:
+                        fragment = new ContactFragment();
+                        break;
+
+                }
+                final FragmentTransaction transaction = fragmentManager.beginTransaction();
+                transaction.setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
+                transaction.replace(R.id.fragment_container, new HomeFragment()).commit();
+                return true;
+            }
+        });
+
+        //to ensure new StartFragment() shows up by default
+        final FragmentTransaction transaction = fragmentManager.beginTransaction();
+        transaction.replace(R.id.fragment_container, new HomeFragment()).commit();*/
+        //  }
+
 
 }

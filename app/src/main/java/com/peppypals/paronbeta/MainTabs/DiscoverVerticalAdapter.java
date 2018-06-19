@@ -8,6 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,7 +23,9 @@ import java.util.Random;
  * Created by kanbi on 19/04/2018.
  */
 
-public class DiscoverVerticalAdapter extends RecyclerView.Adapter <DiscoverVerticalAdapter.ViewHolder> implements AdviceAdapter.ButtonClickListner{
+public class DiscoverVerticalAdapter extends RecyclerView.Adapter <DiscoverVerticalAdapter.ViewHolder> implements AdviceAdapter.ButtonClickListner {
+//, Filterable
+    private List<discoverModel> verticalList = null;
 
     //adapter
     private  ArrayList<discoverModel> discoverData;
@@ -86,6 +90,44 @@ public class DiscoverVerticalAdapter extends RecyclerView.Adapter <DiscoverVerti
 
         context.startActivity(intent);
     }
+
+//    @Override
+//    public Filter getFilter() {
+//        return new Filter() {
+//            @Override
+//            protected FilterResults performFiltering(CharSequence charSequence) {
+//
+//                String charString = charSequence.toString();
+//
+//                if (charString.isEmpty()) {
+//
+//                } else {
+//
+//                    List<discoverModel> filteredList = new ArrayList<>();
+//
+//                    for (discoverModel search : verticalList) {
+//
+//                        if (search.getCategoryTitle().toLowerCase().contains(charString)||(search.getHorizontalArrayList().get.toUpperCase().contains(charString) )) {
+//
+//                            filteredList.add(search);
+//                        }
+//                    }
+//                    movieList = filteredList;
+//                }
+//
+//                FilterResults filterResults = new FilterResults();
+//                filterResults.values = movieList;
+//                return filterResults;
+//            }
+//
+//            @Override
+//            protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
+//                filteredData = (List<MovieModel>) filterResults.values;
+//                notifyDataSetChanged();
+//            }
+//        };
+//
+//    }
 
 }
 

@@ -7,6 +7,9 @@ import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -157,6 +160,20 @@ public class HomeAdviceActivity extends AppCompatActivity {
                         }
                     }
                 }
+            }
+        });
+
+        ImageView shareBtn = (ImageView) findViewById(R.id.shareBtn);
+        shareBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent shareIntent = new Intent(Intent.ACTION_SEND);
+                shareIntent.setType("text/plain");
+                String shareBody = "Your main info to share";
+                String shareSub = "A good suggestion for you!";
+                shareIntent.putExtra(Intent.EXTRA_SUBJECT,shareSub);
+                shareIntent.putExtra(Intent.EXTRA_TEXT,shareBody);
+                startActivity(Intent.createChooser(shareIntent,"WELL DONE!"));
             }
         });
     }

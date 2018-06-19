@@ -2,6 +2,8 @@ package com.peppypals.paronbeta.MainTabs;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -9,10 +11,17 @@ import android.provider.ContactsContract;
 import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SearchView;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -32,6 +41,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.peppypals.paronbeta.EmailSentActivity;
 import com.peppypals.paronbeta.LoginActivity;
 import com.peppypals.paronbeta.R;
 
@@ -46,7 +56,6 @@ public class DiscoverFragment extends Fragment {
     private RecyclerView.LayoutManager layoutManager;
     private DiscoverVerticalAdapter verticalAdapter;
     private CollectionReference categoryRef;
-    private CollectionReference adviceRef;
     ArrayList<discoverModel> allData;
 
     public DiscoverFragment() {
@@ -56,10 +65,20 @@ public class DiscoverFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        setHasOptionsMenu(true);
         final View view = inflater.inflate(R.layout.fragment_discover, container, false);
 
-        categoryRef = FirebaseFirestore.getInstance().collection("categories");
+        //search bar
+        Toolbar toolbar = (Toolbar) view.findViewById(R.id.app_bar);
+        ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
+        toolbar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#FFFFFF")));
 
+
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setCustomView(R.layout.toolbartop);
+
+        //nested Lists
+        categoryRef = FirebaseFirestore.getInstance().collection("categories");
 
         verticalRecyclerView = (RecyclerView) view.findViewById(R.id.discoverRecyclerview);
         verticalRecyclerView.setHasFixedSize(true);
@@ -70,68 +89,7 @@ public class DiscoverFragment extends Fragment {
         loadAllData();
 
        // verticalAdapter = new DiscoverVerticalAdapter(allData);
-        verticalRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
-       // verticalRecyclerView.setAdapter(verticalAdapter);
-
-//        categoryRef.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-//                    @Override
-//                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-//                        if (task.isSuccessful()) {
-//                            final ArrayList<discoverModel> verticalList = new ArrayList<>();
-//                            final ArrayList<adviceModel> adviceList = new ArrayList<>();
-//
-//                            for (final DocumentSnapshot documentMain : task.getResult()) {
-//                                final String docMainId = documentMain.getId();
-//
-//                                adviceRef = categoryRef.document(docMainId ).collection("tips" );
-//                                adviceList.clear();
-//                                adviceRef.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-//                                    @RequiresApi(api = Build.VERSION_CODES.N)
-//                                    @Override
-//                                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-//                                        if (task.getResult().size()>0) {
-//                                            int i=task.getResult().size();
-//
-//                                            for (DocumentSnapshot document : task.getResult()) {
-//                                                i++;
-//                                                if (document.exists()) {
-//                                                    Log.d(TAG, document.getId() + " => " + document.getData());
-//                                                    //form array list for questions
-//                                                    adviceModel advice = document.toObject(adviceModel.class);
-//
-//                                                    adviceList.add(advice);
-//
-//                                                } else {
-//                                                    Log.d(TAG, "no document has tips ", task.getException());
-//                                                }
-//                                            }
-//                                            String categoryName = (String) documentMain.getData().get("name");
-//                                            discoverModel verticalItem =new discoverModel(categoryName,adviceList);
-//
-//                                            verticalList.add(verticalItem);
-//                                            verticalList.size();
-//
-//                                        } else {
-//                                            Log.d(TAG, "Error getting documents: ", task.getException());
-//                                        }
-//
-//                                        verticalAdapter = new DiscoverVerticalAdapter(verticalList);
-//                                        verticalAdapter.notifyDataSetChanged();
-//                                        verticalRecyclerView.setAdapter(verticalAdapter);
-//
-//                                    }
-//
-//                                });
-//
-//                            }
-//                        } else {
-//                            Log.d(TAG, "Error getting documents: ", task.getException());
-//                        }
-//
-//                    }
-//                });
-//
-
+       // verticalRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
 
         Button logout = (Button) view.findViewById(R.id.logOut);
 
@@ -149,7 +107,31 @@ public class DiscoverFragment extends Fragment {
         return view;
     }
 
+//    //searchView
+//    @Override
+//    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+//
+//        inflater.inflate(R.menu.menu_toolbar, menu);
+//        MenuItem item = menu.findItem(R.id.action_search);
+//        final SearchView searchView = (SearchView) item.getActionView();
+//        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+//            @Override
+//            public boolean onQueryTextSubmit(String query) {
+//                searchView.clearFocus();
+//                return false;
+//            }
+//
+//            @Override
+//            public boolean onQueryTextChange(String newText) {
+//                verticalAdapter.getFilter().filter(newText);
+//                return false;
+//            }
+//        });
+//        super.onCreateOptionsMenu(menu,inflater);
+//    }
 
+
+    //load All Data
     public void loadAllData() {
         allData = new ArrayList<>();
 
@@ -209,4 +191,5 @@ public class DiscoverFragment extends Fragment {
                     }
                 });
     }
+
 }

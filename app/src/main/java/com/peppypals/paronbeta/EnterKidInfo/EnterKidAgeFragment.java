@@ -79,12 +79,17 @@ public class EnterKidAgeFragment extends Fragment {
             @Override
             public void onDateChanged(DatePicker datePicker, int year, int month, int dayOfMonth) {
                 int age = calendar.get(Calendar.YEAR) -datePicker.getYear() ;
-                if (calendar.get(Calendar.MONTH) > datePicker.getMonth() ){
-                    kidAge.setText(String.valueOf(age)+ YEAR_TEXT);
-                }else if (calendar.get(Calendar.MONTH) == datePicker.getMonth() && calendar.get(Calendar.DAY_OF_MONTH) >= datePicker.getDayOfMonth()){
-                    kidAge.setText(String.valueOf(age)+ YEAR_TEXT);
-                }else{
-                    kidAge.setText(String.valueOf(age-1)+ YEAR_TEXT);
+                if(age<=EARLY_YEAR){
+                    Toast.makeText(getActivity(), "Ålden måste vara mer än 2 år", Toast.LENGTH_SHORT).show();
+
+                }else {
+                    if (calendar.get(Calendar.MONTH) > datePicker.getMonth()) {
+                        kidAge.setText(String.valueOf(age) + YEAR_TEXT);
+                    } else if (calendar.get(Calendar.MONTH) == datePicker.getMonth() && calendar.get(Calendar.DAY_OF_MONTH) >= datePicker.getDayOfMonth()) {
+                        kidAge.setText(String.valueOf(age) + YEAR_TEXT);
+                    } else {
+                        kidAge.setText(String.valueOf(age - 1) + YEAR_TEXT);
+                    }
                 }
                 birthday = datePicker.getDayOfMonth() + " / " + (datePicker.getMonth()+1) + " / " + datePicker.getYear();
 
@@ -108,7 +113,7 @@ public class EnterKidAgeFragment extends Fragment {
                                               if (TextUtils.isEmpty(kidAge.getText())){
                                                   Toast.makeText(getActivity(), "Vänligen välja barnets fördelsedag", Toast.LENGTH_SHORT).show();
 
-                                              }else {
+                                              }else{
 
                                                   Bundle arguments = new Bundle();
                                                   arguments.putString("kidName", String.valueOf(name));

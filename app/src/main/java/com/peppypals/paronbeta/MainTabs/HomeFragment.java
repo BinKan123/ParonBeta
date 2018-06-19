@@ -12,6 +12,7 @@ import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -55,6 +56,7 @@ public class HomeFragment extends Fragment implements AdviceAdapter.ButtonClickL
     private CollectionReference factRef;
     private CollectionReference categoryRef;
     private CollectionReference adviceRef;
+    private Button toProff;
 
     public HomeFragment() {
 
@@ -68,6 +70,18 @@ public class HomeFragment extends Fragment implements AdviceAdapter.ButtonClickL
         rootRef = FirebaseFirestore.getInstance();
         categoryRef = rootRef.collection("categories");
         factRef = rootRef.collection("randomFacts");
+
+        toProff = (Button) view.findViewById(R.id.writeUs);
+        toProff.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                ContactFragment fragment = new ContactFragment();
+                FragmentManager fragmentManager = getFragmentManager();
+                fragmentManager.beginTransaction().replace(android.R.id.content, fragment).commit();
+            }
+        });
 
         recyclerView = (RecyclerView) view.findViewById(R.id.adviceRecyclerview);
         recyclerView.setHasFixedSize(true);

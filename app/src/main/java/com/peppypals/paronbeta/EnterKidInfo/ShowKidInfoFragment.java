@@ -160,7 +160,6 @@ public class ShowKidInfoFragment extends Fragment {
                 String birthdayInput = model.getBirthday();
                 int birthDate = Integer.parseInt(birthdayInput.substring(0, 2));
                 int birthMonth = Integer.parseInt(birthdayInput.substring(5, 7));
-                String testYear = birthdayInput.substring(10);
                 int birthYear = Integer.parseInt(birthdayInput.substring(10));
 
                 int age = calendar.get(Calendar.YEAR) - birthYear ;
@@ -173,7 +172,6 @@ public class ShowKidInfoFragment extends Fragment {
                     holder.nameAge.setText(output+ ", " + String.valueOf(age-1)+ YEAR_TEXT);
                 }
 
-              //  holder.nameAge.setText(model.getName()+", " + model.getBirthday());
 
                 holder.removeBtn.setOnClickListener(new View.OnClickListener() {
                     @Override

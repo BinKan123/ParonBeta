@@ -214,7 +214,7 @@ och emotionella utveckling. </font></p>
     <string name="declaim_title2">När vi inte kan hjälpa till</string>
     <string name="no_chat_title">Inga chattar ännu!</string>
     <string name="start_chat">Börja chatta!</string>
-    <string name="no_chat_text">Du kan prova att chatta helt grattis med våra experter i 15 minuter. Du kan alltid återkomma till denna person för längre sessioner.</string>
+    <string name="no_chat_text">Du kan prova att chatta helt gratis med våra experter i 15 minuter. Du kan alltid återkomma till denna person för längre sessioner.</string>
     <string name="with_whom">Med vem vill du chatta med?</string>
     <string name="psy_text">Med en våra psykologer kan du prata om exempel1, exempel2, exempel3,</string>
     <string name="psy_title">Psykolog</string>
@@ -229,6 +229,8 @@ och emotionella utveckling. </font></p>
     <string name="option2p">30 min / 30kr</string>
     <string name="option1p">15 min / 15kr</string>
     <string name="option3p">45 min / 45kr</string>
+    <string name="title_activity_klarna">KlarnaActivity</string>
+    <string name="title_activity_payment">PaymentActivity</string>
 
 
 </resources>

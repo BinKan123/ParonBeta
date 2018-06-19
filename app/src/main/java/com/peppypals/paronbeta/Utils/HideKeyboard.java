@@ -20,5 +20,4 @@ public class HideKeyboard {
                 activity.getCurrentFocus().getWindowToken(), 0);
     }
 
-
 }

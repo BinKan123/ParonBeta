@@ -38,6 +38,22 @@ public class ContactFragment extends Fragment {
                 startActivity(intent);
             }
         });
+
+        Button mailBtn = (Button) view.findViewById(R.id.mailBtn);
+        mailBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_SEND);
+                intent.setData(Uri.parse("mailto:"));
+                String mailTo = "paulina@paronapp.com";
+                intent.putExtra(Intent.EXTRA_EMAIL,mailTo);
+                intent.putExtra(Intent.EXTRA_SUBJECT,"EMAIL FROM PARON Android");
+                intent.putExtra(Intent.EXTRA_TEXT,"Grattis! Nu fick du den första mailet ifån Päron Android! ");
+                intent.setType("message/rfc822");
+
+                getActivity().startActivity(intent);
+            }
+        });
         return view;
     }
 
