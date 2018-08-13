@@ -37,4 +37,15 @@
         tools:layout_constraintLeft_creator="1"
         tools:layout_constraintTop_creator="1" />
 
+    <Button
+        android:id="@+id/SMSBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="60dp"
+        android:text="SMS"
+        app:layout_constraintEnd_toEndOf="@+id/payBtn"
+        app:layout_constraintStart_toStartOf="@+id/payBtn"
+        app:layout_constraintTop_toBottomOf="@+id/payBtn" />
+
 </android.support.constraint.ConstraintLayout>
